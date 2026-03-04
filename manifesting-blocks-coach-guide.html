@@ -42,7 +42,11 @@
       vertical-align: top;
       color: #374151;
     }
+    .qr-table tbody tr { cursor: pointer; transition: background 0.15s; }
+    .qr-table tbody tr:hover td { background: #f3eaff; }
     .qr-table tr:nth-child(even) td { background: #fdfcfe; }
+    .qr-table tr:nth-child(even):hover td { background: #f3eaff; }
+    .qr-table td a { color: inherit; text-decoration: none; }
     .qr-num { font-weight: 600; color: #9ca3af; width: 2rem; }
     .qr-name { font-weight: 600; color: #0f131a; white-space: nowrap; }
     .qr-cat { font-size: 0.6875rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.03em; }
@@ -54,7 +58,9 @@
       padding: 1.25rem 1.5rem;
       margin-bottom: 1rem;
     }
-    .cs-name { font-weight: 600; color: #7a12d4; margin-bottom: 0.5rem; }
+    .cs-name { font-weight: 600; color: #7a12d4; margin-bottom: 0.5rem; cursor: pointer; }
+    .cs-name:hover { text-decoration: underline; }
+    [id^="block-"] { scroll-margin-top: 1.5rem; }
     .cs-phrases {
       padding-left: 1.25rem;
       font-style: italic;
@@ -225,16 +231,16 @@
         <table class="qr-table">
           <thead><tr><th>#</th><th>Block</th><th>One-Line Description</th><th>Category</th></tr></thead>
           <tbody>
-            <tr><td class="qr-num">1</td><td class="qr-name">Upper Limit Problem</td><td>A glass ceiling on what you believe you're capable of</td><td class="qr-cat">The Car</td></tr>
-            <tr><td class="qr-num">2</td><td class="qr-name">Emotional Incongruence</td><td>Even when good things arrive, your nervous system pulls you back to "safety"</td><td class="qr-cat">The Car</td></tr>
-            <tr><td class="qr-num">3</td><td class="qr-name">Fear of Success</td><td>You think you fear failure, but you actually fear what success demands</td><td class="qr-cat">The Car</td></tr>
-            <tr><td class="qr-num">4</td><td class="qr-name">Hustle Mode</td><td>Discipline replaces intuition — you chase rather than attract</td><td class="qr-cat">The Fuel</td></tr>
-            <tr><td class="qr-num">5</td><td class="qr-name">Wrong Environment</td><td>Your physical environment carries a frequency that suppresses manifesting</td><td class="qr-cat">The Fuel</td></tr>
-            <tr><td class="qr-num">6</td><td class="qr-name">Bullshit Rules</td><td>Hidden programs from childhood/culture that govern what you allow yourself to have</td><td class="qr-cat">The GPS</td></tr>
-            <tr><td class="qr-num">7</td><td class="qr-name">Visualization from Lack</td><td>You see the dream but emotionally broadcast the gap, not the arrival</td><td class="qr-cat">The GPS</td></tr>
-            <tr><td class="qr-num">8</td><td class="qr-name">Time Lag Frustration</td><td>Impatience and doubt when progress isn't immediate, creating repelling desperation</td><td class="qr-cat">The GPS</td></tr>
-            <tr><td class="qr-num">9</td><td class="qr-name">Surrender Block</td><td>Clinging to how and when a goal must arrive — inability to trust timing</td><td class="qr-cat">The Driver</td></tr>
-            <tr><td class="qr-num">10</td><td class="qr-name">Quantum Leap Syndrome</td><td>Overwhelm, panic, or self-sabotage when manifestation arrives too fast</td><td class="qr-cat">The Driver</td></tr>
+            <tr onclick="document.getElementById('block-1').scrollIntoView({behavior:'smooth'})"><td class="qr-num">1</td><td class="qr-name">Upper Limit Problem</td><td>A glass ceiling on what you believe you're capable of</td><td class="qr-cat">The Car</td></tr>
+            <tr onclick="document.getElementById('block-2').scrollIntoView({behavior:'smooth'})"><td class="qr-num">2</td><td class="qr-name">Emotional Incongruence</td><td>Even when good things arrive, your nervous system pulls you back to "safety"</td><td class="qr-cat">The Car</td></tr>
+            <tr onclick="document.getElementById('block-3').scrollIntoView({behavior:'smooth'})"><td class="qr-num">3</td><td class="qr-name">Fear of Success</td><td>You think you fear failure, but you actually fear what success demands</td><td class="qr-cat">The Car</td></tr>
+            <tr onclick="document.getElementById('block-4').scrollIntoView({behavior:'smooth'})"><td class="qr-num">4</td><td class="qr-name">Hustle Mode</td><td>Discipline replaces intuition — you chase rather than attract</td><td class="qr-cat">The Fuel</td></tr>
+            <tr onclick="document.getElementById('block-5').scrollIntoView({behavior:'smooth'})"><td class="qr-num">5</td><td class="qr-name">Wrong Environment</td><td>Your physical environment carries a frequency that suppresses manifesting</td><td class="qr-cat">The Fuel</td></tr>
+            <tr onclick="document.getElementById('block-6').scrollIntoView({behavior:'smooth'})"><td class="qr-num">6</td><td class="qr-name">Bullshit Rules</td><td>Hidden programs from childhood/culture that govern what you allow yourself to have</td><td class="qr-cat">The GPS</td></tr>
+            <tr onclick="document.getElementById('block-7').scrollIntoView({behavior:'smooth'})"><td class="qr-num">7</td><td class="qr-name">Visualization from Lack</td><td>You see the dream but emotionally broadcast the gap, not the arrival</td><td class="qr-cat">The GPS</td></tr>
+            <tr onclick="document.getElementById('block-8').scrollIntoView({behavior:'smooth'})"><td class="qr-num">8</td><td class="qr-name">Time Lag Frustration</td><td>Impatience and doubt when progress isn't immediate, creating repelling desperation</td><td class="qr-cat">The GPS</td></tr>
+            <tr onclick="document.getElementById('block-9').scrollIntoView({behavior:'smooth'})"><td class="qr-num">9</td><td class="qr-name">Surrender Block</td><td>Clinging to how and when a goal must arrive — inability to trust timing</td><td class="qr-cat">The Driver</td></tr>
+            <tr onclick="document.getElementById('block-10').scrollIntoView({behavior:'smooth'})"><td class="qr-num">10</td><td class="qr-name">Quantum Leap Syndrome</td><td>Overwhelm, panic, or self-sabotage when manifestation arrives too fast</td><td class="qr-cat">The Driver</td></tr>
           </tbody>
         </table>
       </div>
@@ -246,16 +252,16 @@
     <h2 class="title-bold-4" style="margin-bottom: 0.5rem;">Client Language Cheat Sheet</h2>
     <p class="body" style="color: #4b5563; margin-bottom: 1.5rem;">Listen for these phrases — they signal which block is active.</p>
 
-    <div class="cs-card"><div class="cs-name">1. Upper Limit Problem</div><ul class="cs-phrases"><li>"I don't have the education / skills / background for that."</li><li>"I'm not ready yet — I need more training first."</li><li>"What if I fail? What if it doesn't work out?"</li></ul></div>
-    <div class="cs-card"><div class="cs-name">2. Emotional Incongruence</div><ul class="cs-phrases"><li>"I don't think I deserve that."</li><li>"Good things don't happen to people like me."</li><li>"Every time something good happens, something bad follows."</li><li>"I feel guilty when I receive compliments / gifts / money."</li></ul></div>
-    <div class="cs-card"><div class="cs-name">3. Fear of Success</div><ul class="cs-phrases"><li>"What if I lose myself?"</li><li>"What if my friends leave me when I outgrow them?"</li><li>"If I get there, I'll have to deal with [taxes / employees / responsibility]."</li><li>"What if I have to hustle insanely hard to sustain it?"</li></ul></div>
-    <div class="cs-card"><div class="cs-name">4. Hustle Mode</div><ul class="cs-phrases"><li>"I have to work harder / grind more."</li><li>"If I stop pushing, everything will fall apart."</li><li>"I feel restless / anxious when I'm not doing something."</li><li>"I feel guilty when I rest."</li></ul></div>
-    <div class="cs-card"><div class="cs-name">5. Wrong Environment</div><ul class="cs-phrases"><li>"My home / office feels heavy / draining."</li><li>"The people around me don't support my dreams."</li><li>"I feel stuck but I don't know why."</li><li>"Everyone around me is negative / gossiping / fearful."</li></ul></div>
-    <div class="cs-card"><div class="cs-name">6. Bullshit Rules (Brules)</div><ul class="cs-phrases"><li>"Money is dangerous / dirty / the root of all evil."</li><li>"Rich people are bad / greedy."</li><li>"People like me don't get to have that."</li><li>"My parents always said…"</li><li>"It's not safe to be visible / wealthy / successful."</li></ul></div>
-    <div class="cs-card"><div class="cs-name">7. Visualization from Lack</div><ul class="cs-phrases"><li>"I visualize every day but nothing changes."</li><li>"I can see it but it feels so far away."</li><li>"Looking at my vision board makes me feel sad / frustrated."</li><li>"I want it so badly."</li></ul></div>
-    <div class="cs-card"><div class="cs-name">8. Time Lag Frustration</div><ul class="cs-phrases"><li>"I've been doing this for months and nothing is happening."</li><li>"I'm running out of time."</li><li>"Maybe this manifesting stuff doesn't work."</li><li>"I should have had this by now."</li></ul></div>
-    <div class="cs-card"><div class="cs-name">9. Surrender Block</div><ul class="cs-phrases"><li>"But when will it happen?"</li><li>"I need it to happen THIS way."</li><li>"Why is the universe ignoring me?"</li><li>"I've done everything right, where are my results?"</li></ul></div>
-    <div class="cs-card"><div class="cs-name">10. Quantum Leap Syndrome</div><ul class="cs-phrases"><li>"Everything is happening so fast, I can't keep up."</li><li>"I got what I wanted and now I'm panicking."</li><li>"This feels too good to be true."</li><li>"I'm scared I'll mess it up now that I have it."</li><li>"I feel like a fraud / imposter."</li></ul></div>
+    <div class="cs-card"><div class="cs-name" onclick="document.getElementById('block-1').scrollIntoView({behavior:'smooth'})">1. Upper Limit Problem</div><ul class="cs-phrases"><li>"I don't have the education / skills / background for that."</li><li>"I'm not ready yet — I need more training first."</li><li>"What if I fail? What if it doesn't work out?"</li></ul></div>
+    <div class="cs-card"><div class="cs-name" onclick="document.getElementById('block-2').scrollIntoView({behavior:'smooth'})">2. Emotional Incongruence</div><ul class="cs-phrases"><li>"I don't think I deserve that."</li><li>"Good things don't happen to people like me."</li><li>"Every time something good happens, something bad follows."</li><li>"I feel guilty when I receive compliments / gifts / money."</li></ul></div>
+    <div class="cs-card"><div class="cs-name" onclick="document.getElementById('block-3').scrollIntoView({behavior:'smooth'})">3. Fear of Success</div><ul class="cs-phrases"><li>"What if I lose myself?"</li><li>"What if my friends leave me when I outgrow them?"</li><li>"If I get there, I'll have to deal with [taxes / employees / responsibility]."</li><li>"What if I have to hustle insanely hard to sustain it?"</li></ul></div>
+    <div class="cs-card"><div class="cs-name" onclick="document.getElementById('block-4').scrollIntoView({behavior:'smooth'})">4. Hustle Mode</div><ul class="cs-phrases"><li>"I have to work harder / grind more."</li><li>"If I stop pushing, everything will fall apart."</li><li>"I feel restless / anxious when I'm not doing something."</li><li>"I feel guilty when I rest."</li></ul></div>
+    <div class="cs-card"><div class="cs-name" onclick="document.getElementById('block-5').scrollIntoView({behavior:'smooth'})">5. Wrong Environment</div><ul class="cs-phrases"><li>"My home / office feels heavy / draining."</li><li>"The people around me don't support my dreams."</li><li>"I feel stuck but I don't know why."</li><li>"Everyone around me is negative / gossiping / fearful."</li></ul></div>
+    <div class="cs-card"><div class="cs-name" onclick="document.getElementById('block-6').scrollIntoView({behavior:'smooth'})">6. Bullshit Rules (Brules)</div><ul class="cs-phrases"><li>"Money is dangerous / dirty / the root of all evil."</li><li>"Rich people are bad / greedy."</li><li>"People like me don't get to have that."</li><li>"My parents always said…"</li><li>"It's not safe to be visible / wealthy / successful."</li></ul></div>
+    <div class="cs-card"><div class="cs-name" onclick="document.getElementById('block-7').scrollIntoView({behavior:'smooth'})">7. Visualization from Lack</div><ul class="cs-phrases"><li>"I visualize every day but nothing changes."</li><li>"I can see it but it feels so far away."</li><li>"Looking at my vision board makes me feel sad / frustrated."</li><li>"I want it so badly."</li></ul></div>
+    <div class="cs-card"><div class="cs-name" onclick="document.getElementById('block-8').scrollIntoView({behavior:'smooth'})">8. Time Lag Frustration</div><ul class="cs-phrases"><li>"I've been doing this for months and nothing is happening."</li><li>"I'm running out of time."</li><li>"Maybe this manifesting stuff doesn't work."</li><li>"I should have had this by now."</li></ul></div>
+    <div class="cs-card"><div class="cs-name" onclick="document.getElementById('block-9').scrollIntoView({behavior:'smooth'})">9. Surrender Block</div><ul class="cs-phrases"><li>"But when will it happen?"</li><li>"I need it to happen THIS way."</li><li>"Why is the universe ignoring me?"</li><li>"I've done everything right, where are my results?"</li></ul></div>
+    <div class="cs-card"><div class="cs-name" onclick="document.getElementById('block-10').scrollIntoView({behavior:'smooth'})">10. Quantum Leap Syndrome</div><ul class="cs-phrases"><li>"Everything is happening so fast, I can't keep up."</li><li>"I got what I wanted and now I'm panicking."</li><li>"This feels too good to be true."</li><li>"I'm scared I'll mess it up now that I have it."</li><li>"I feel like a fraud / imposter."</li></ul></div>
   </section>
 
   <!-- Detailed Guide -->
@@ -264,7 +270,7 @@
   </section>
 
   <!-- Block 1 -->
-  <section class="mv-container" style="padding: 0 0 1rem 0;">
+  <section id="block-1" class="mv-container" style="padding: 0 0 1rem 0;">
     <div class="block-card-detail">
       <div class="body-xs" style="color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Block 1</div>
       <span class="block-badge">The Car &middot; Inner Identity</span>
@@ -283,7 +289,7 @@
   </section>
 
   <!-- Block 2 -->
-  <section class="mv-container" style="padding: 0 0 1rem 0;">
+  <section id="block-2" class="mv-container" style="padding: 0 0 1rem 0;">
     <div class="block-card-detail">
       <div class="body-xs" style="color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Block 2</div>
       <span class="block-badge">The Car &middot; Inner Identity</span>
@@ -302,7 +308,7 @@
   </section>
 
   <!-- Block 3 -->
-  <section class="mv-container" style="padding: 0 0 1rem 0;">
+  <section id="block-3" class="mv-container" style="padding: 0 0 1rem 0;">
     <div class="block-card-detail">
       <div class="body-xs" style="color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Block 3</div>
       <span class="block-badge">The Car &middot; Inner Identity</span>
@@ -321,7 +327,7 @@
   </section>
 
   <!-- Block 4 -->
-  <section class="mv-container" style="padding: 0 0 1rem 0;">
+  <section id="block-4" class="mv-container" style="padding: 0 0 1rem 0;">
     <div class="block-card-detail">
       <div class="body-xs" style="color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Block 4</div>
       <span class="block-badge">The Fuel &middot; Energetic Alignment</span>
@@ -340,7 +346,7 @@
   </section>
 
   <!-- Block 5 -->
-  <section class="mv-container" style="padding: 0 0 1rem 0;">
+  <section id="block-5" class="mv-container" style="padding: 0 0 1rem 0;">
     <div class="block-card-detail">
       <div class="body-xs" style="color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Block 5</div>
       <span class="block-badge">The Fuel &middot; Energetic Alignment</span>
@@ -359,7 +365,7 @@
   </section>
 
   <!-- Block 6 -->
-  <section class="mv-container" style="padding: 0 0 1rem 0;">
+  <section id="block-6" class="mv-container" style="padding: 0 0 1rem 0;">
     <div class="block-card-detail">
       <div class="body-xs" style="color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Block 6</div>
       <span class="block-badge">The GPS &middot; Subconscious Programming</span>
@@ -378,7 +384,7 @@
   </section>
 
   <!-- Block 7 -->
-  <section class="mv-container" style="padding: 0 0 1rem 0;">
+  <section id="block-7" class="mv-container" style="padding: 0 0 1rem 0;">
     <div class="block-card-detail">
       <div class="body-xs" style="color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Block 7</div>
       <span class="block-badge">The GPS &middot; Subconscious Programming</span>
@@ -395,7 +401,7 @@
   </section>
 
   <!-- Block 8 -->
-  <section class="mv-container" style="padding: 0 0 1rem 0;">
+  <section id="block-8" class="mv-container" style="padding: 0 0 1rem 0;">
     <div class="block-card-detail">
       <div class="body-xs" style="color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Block 8</div>
       <span class="block-badge">The GPS &middot; Subconscious Programming</span>
@@ -412,7 +418,7 @@
   </section>
 
   <!-- Block 9 -->
-  <section class="mv-container" style="padding: 0 0 1rem 0;">
+  <section id="block-9" class="mv-container" style="padding: 0 0 1rem 0;">
     <div class="block-card-detail">
       <div class="body-xs" style="color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Block 9</div>
       <span class="block-badge">The Driver &middot; Manifesting Integration</span>
@@ -429,7 +435,7 @@
   </section>
 
   <!-- Block 10 -->
-  <section class="mv-container" style="padding: 0 0 5rem 0;">
+  <section id="block-10" class="mv-container" style="padding: 0 0 5rem 0;">
     <div class="block-card-detail">
       <div class="body-xs" style="color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Block 10</div>
       <span class="block-badge">The Driver &middot; Manifesting Integration</span>
