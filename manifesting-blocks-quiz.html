@@ -8,7 +8,6 @@
   <meta name="theme-color" content="#7a12d4" />
   <link rel="stylesheet" href="https://vishenl.github.io/workspace/mindvalley-core.css" />
   <style>
-    /* Page-specific styles that build on mindvalley-core.css */
     .category-header {
       display: flex;
       align-items: center;
@@ -38,14 +37,8 @@
       align-items: center;
       border-bottom: 1px solid #e8e0f0;
     }
-    .block-label-name {
-      color: #7a12d4;
-      font-weight: 600;
-    }
-    .block-label-num {
-      color: #9ca3af;
-      font-size: 0.8rem;
-    }
+    .block-label-name { color: #7a12d4; font-weight: 600; }
+    .block-label-num { color: #9ca3af; font-size: 0.8rem; }
     .q-row {
       display: flex;
       align-items: center;
@@ -83,8 +76,22 @@
       font-size: 0.8125rem;
       font-weight: 500;
       color: #6b7280;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-    /* Instructions card */
+    .q-circles .c:hover {
+      border-color: #7a12d4;
+      color: #7a12d4;
+      background: #f9f7fc;
+    }
+    .q-circles .c.selected {
+      background: linear-gradient(180deg, #7a12d4 0%, #9333ea 100%);
+      color: white;
+      border-color: #7a12d4;
+      box-shadow: 0 2px 8px rgba(122, 18, 212, 0.3);
+    }
     .instructions-card {
       background: white;
       border-radius: 1rem;
@@ -102,84 +109,75 @@
     }
     .scale-row span { flex: 1; }
     .scale-row b { display: block; font-size: 1.125rem; color: #0f131a; }
-    /* Client info */
-    .client-fields {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .client-field {
-      flex: 1;
+    /* Progress bar */
+    .progress-bar-wrap {
       background: white;
-      border: 1px solid #e8e0f0;
-      border-radius: 0.75rem;
-      padding: 1rem 1.25rem;
-    }
-    .client-field label {
-      display: block;
-      font-size: 0.625rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #9ca3af;
-      margin-bottom: 0.75rem;
-    }
-    .client-field .line {
-      border-bottom: 1px solid #d1d5db;
-      min-height: 1rem;
-    }
-    /* Scoring */
-    .scoring-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9375rem;
-    }
-    .scoring-table th {
-      text-align: left;
-      padding: 0.75rem 1rem;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #7a12d4;
-      background: #f9f7fc;
-      border-bottom: 1px solid #e8e0f0;
-    }
-    .scoring-table th.center { text-align: center; width: 3.5rem; }
-    .scoring-table th:last-child { text-align: center; width: 4.5rem; }
-    .scoring-table td {
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid #f3f4f6;
-      color: #374151;
-    }
-    .scoring-table td.center { text-align: center; font-size: 0.8rem; color: #9ca3af; }
-    .scoring-table tr:nth-child(even) td { background: #fdfcfe; }
-    .s-name { font-weight: 600; color: #0f131a; }
-    .s-cat { font-size: 0.6875rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.03em; }
-    .score-box {
-      display: inline-block;
-      width: 2.75rem;
-      height: 1.75rem;
-      border: 1.5px solid #d1d5db;
-      border-radius: 0.375rem;
-    }
-    /* Top 3 */
-    .top-three-card {
-      background: white;
-      border: 2px solid #7a12d4;
       border-radius: 1rem;
-      padding: 2rem 2.5rem;
-      margin-top: 2rem;
-    }
-    .rank-row {
+      padding: 1.25rem 2rem;
+      border: 1px solid #e8e0f0;
+      margin-bottom: 2rem;
       display: flex;
       align-items: center;
       gap: 1rem;
-      margin-bottom: 1rem;
     }
+    .progress-track {
+      flex: 1;
+      height: 0.5rem;
+      background: #f3f4f6;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #7a12d4, #9333ea);
+      border-radius: 1rem;
+      transition: width 0.3s ease;
+    }
+    .progress-text {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #7a12d4;
+      white-space: nowrap;
+    }
+    /* Results section */
+    #results-section {
+      display: none;
+    }
+    #results-section.visible {
+      display: block;
+      animation: fadeInUp 0.5s ease;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(1.5rem); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .results-card {
+      background: white;
+      border: 2px solid #7a12d4;
+      border-radius: 1rem;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .results-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #7a12d4, #9333ea, #c084fc, #9333ea, #7a12d4);
+    }
+    .top-block-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .top-block-row:last-child { border-bottom: none; }
     .rank-num {
-      width: 2.25rem;
-      height: 2.25rem;
+      width: 2.5rem;
+      height: 2.5rem;
       border-radius: 50%;
       background: linear-gradient(180deg, #7a12d4 0%, #9333ea 100%);
       color: white;
@@ -187,32 +185,85 @@
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 0.9375rem;
+      font-size: 1rem;
       flex-shrink: 0;
     }
-    .rank-line {
-      flex: 1;
-      border-bottom: 1px dashed #d1d5db;
-      min-height: 1.5rem;
+    .top-block-info { flex: 1; }
+    .top-block-name { font-weight: 600; color: #0f131a; font-size: 1.0625rem; }
+    .top-block-cat { font-size: 0.75rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; }
+    .top-block-score {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #7a12d4;
     }
-    .rank-score { font-size: 0.8125rem; color: #9ca3af; flex-shrink: 0; }
-    /* Print */
+    .top-block-max {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      font-weight: 400;
+    }
+    /* All scores bar chart */
+    .all-scores { margin-top: 2rem; }
+    .score-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .score-bar-label {
+      width: 10rem;
+      font-size: 0.8125rem;
+      color: #374151;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .score-bar-track {
+      flex: 1;
+      height: 1.5rem;
+      background: #f3f4f6;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .score-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #e0cfff, #7a12d4);
+      border-radius: 0.75rem;
+      transition: width 0.6s ease;
+      min-width: 0;
+    }
+    .score-bar-fill.top3 {
+      background: linear-gradient(90deg, #7a12d4, #9333ea);
+    }
+    .score-bar-val {
+      width: 2.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #374151;
+      flex-shrink: 0;
+    }
+    /* Screenshot hint */
+    .screenshot-hint {
+      text-align: center;
+      margin-top: 1.5rem;
+      padding: 0.75rem;
+      background: #f9f7fc;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      color: #7a12d4;
+      font-weight: 500;
+    }
     @media print {
       body { background: white; }
       .mv-container { max-width: 100%; padding: 0 1rem; }
-      .block-card, .instructions-card, .client-field, .top-three-card {
+      .block-card, .instructions-card, .results-card, .progress-bar-wrap {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
-      .category-pill, .rank-num {
+      .category-pill, .rank-num, .q-circles .c.selected, .score-bar-fill, .progress-fill {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
-      .scoring-table th {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      section { page-break-inside: avoid; }
+      .screenshot-hint { display: none; }
     }
   </style>
 </head>
@@ -223,21 +274,20 @@
     <div class="overline-text" style="margin-bottom: 1rem; color: #7a12d4;">MINDVALLEY &middot; MANIFESTING MASTERY</div>
     <h1 class="title-bold-2" style="max-width: 48rem; margin: 0 0 1rem 0;">Manifesting Blocks Assessment</h1>
     <p class="body-lg" style="max-width: 40rem; color: #4b5563;">
-      Identify the hidden blocks between you and what you're manifesting. Rate each statement honestly based on how you <em>actually</em> feel.
+      Tap the number that best matches how you feel for each statement. Your results will appear automatically when you're done.
     </p>
   </section>
 
-  <!-- Client Info + Instructions -->
+  <!-- Progress -->
   <section class="mv-container" style="padding: 0 0 2rem 0;">
-    <div class="client-fields">
-      <div class="client-field"><label>Client Name</label><div class="line"></div></div>
-      <div class="client-field"><label>Date</label><div class="line"></div></div>
-      <div class="client-field"><label>Coach</label><div class="line"></div></div>
+    <div class="progress-bar-wrap">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-text" id="progressText">0 / 30</div>
     </div>
 
     <div class="instructions-card">
       <p class="overline-text" style="color: #7a12d4; margin-bottom: 0.75rem;">How to Complete</p>
-      <p class="body" style="color: #4b5563; margin-bottom: 0;">Read each statement and circle the number that best reflects your experience.</p>
+      <p class="body" style="color: #4b5563; margin-bottom: 0;">Tap the number that best reflects your honest experience for each statement.</p>
       <div class="scale-row">
         <span><b>1</b>Strongly Disagree</span>
         <span><b>2</b>Disagree</span>
@@ -256,24 +306,24 @@
     </div>
 
     <div class="block-card">
-      <div class="block-label-row"><span class="block-label-name">The Upper Limit Problem</span><span class="block-label-num">Block 1 &middot; Q1–Q3</span></div>
-      <div class="q-row"><div class="q-num">1.</div><div class="q-text">When I think about my biggest goal, I feel a wave of doubt that I have what it takes to get there.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">2.</div><div class="q-text">I often feel I need more education, training, or experience before I can pursue what I really want.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">3.</div><div class="q-text">When an exciting opportunity comes along, my first reaction is nervousness and "what if" worries rather than joy.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
+      <div class="block-label-row"><span class="block-label-name">The Upper Limit Problem</span><span class="block-label-num">Block 1</span></div>
+      <div class="q-row"><div class="q-num">1.</div><div class="q-text">When I think about my biggest goal, I feel a wave of doubt that I have what it takes to get there.</div><div class="q-circles" data-q="1"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">2.</div><div class="q-text">I often feel I need more education, training, or experience before I can pursue what I really want.</div><div class="q-circles" data-q="2"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">3.</div><div class="q-text">When an exciting opportunity comes along, my first reaction is nervousness and "what if" worries rather than joy.</div><div class="q-circles" data-q="3"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
     </div>
 
     <div class="block-card">
-      <div class="block-label-row"><span class="block-label-name">Emotional Incongruence</span><span class="block-label-num">Block 2 &middot; Q4–Q6</span></div>
-      <div class="q-row"><div class="q-num">4.</div><div class="q-text">When something good happens to me, a part of me feels I don't truly deserve it.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">5.</div><div class="q-text">Every time something great starts happening in my life, something bad seems to follow soon after.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">6.</div><div class="q-text">I feel guilty when I receive money, compliments, or gifts — like I haven't earned them.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
+      <div class="block-label-row"><span class="block-label-name">Emotional Incongruence</span><span class="block-label-num">Block 2</span></div>
+      <div class="q-row"><div class="q-num">4.</div><div class="q-text">When something good happens to me, a part of me feels I don't truly deserve it.</div><div class="q-circles" data-q="4"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">5.</div><div class="q-text">Every time something great starts happening in my life, something bad seems to follow soon after.</div><div class="q-circles" data-q="5"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">6.</div><div class="q-text">I feel guilty when I receive money, compliments, or gifts — like I haven't earned them.</div><div class="q-circles" data-q="6"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
     </div>
 
     <div class="block-card">
-      <div class="block-label-row"><span class="block-label-name">Fear of Success</span><span class="block-label-num">Block 3 &middot; Q7–Q9</span></div>
-      <div class="q-row"><div class="q-num">7.</div><div class="q-text">I worry that achieving my goal will require sacrificing my freedom, relationships, or lifestyle.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">8.</div><div class="q-text">I'm afraid that if I succeed, I won't be able to sustain it and everything will collapse.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">9.</div><div class="q-text">I sometimes get close to a major goal and then pull back or sabotage myself before reaching it.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
+      <div class="block-label-row"><span class="block-label-name">Fear of Success</span><span class="block-label-num">Block 3</span></div>
+      <div class="q-row"><div class="q-num">7.</div><div class="q-text">I worry that achieving my goal will require sacrificing my freedom, relationships, or lifestyle.</div><div class="q-circles" data-q="7"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">8.</div><div class="q-text">I'm afraid that if I succeed, I won't be able to sustain it and everything will collapse.</div><div class="q-circles" data-q="8"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">9.</div><div class="q-text">I sometimes get close to a major goal and then pull back or sabotage myself before reaching it.</div><div class="q-circles" data-q="9"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
     </div>
   </section>
 
@@ -285,17 +335,17 @@
     </div>
 
     <div class="block-card">
-      <div class="block-label-row"><span class="block-label-name">Hustle Mode</span><span class="block-label-num">Block 4 &middot; Q10–Q12</span></div>
-      <div class="q-row"><div class="q-num">10.</div><div class="q-text">I feel anxious or guilty when I'm not actively working toward my goals.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">11.</div><div class="q-text">I believe that if I stop pushing hard, everything I've built will fall apart.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">12.</div><div class="q-text">My work regularly feels like grinding and pressure rather than inspired, natural action.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
+      <div class="block-label-row"><span class="block-label-name">Hustle Mode</span><span class="block-label-num">Block 4</span></div>
+      <div class="q-row"><div class="q-num">10.</div><div class="q-text">I feel anxious or guilty when I'm not actively working toward my goals.</div><div class="q-circles" data-q="10"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">11.</div><div class="q-text">I believe that if I stop pushing hard, everything I've built will fall apart.</div><div class="q-circles" data-q="11"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">12.</div><div class="q-text">My work regularly feels like grinding and pressure rather than inspired, natural action.</div><div class="q-circles" data-q="12"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
     </div>
 
     <div class="block-card">
-      <div class="block-label-row"><span class="block-label-name">Wrong Environment</span><span class="block-label-num">Block 5 &middot; Q13–Q15</span></div>
-      <div class="q-row"><div class="q-num">13.</div><div class="q-text">The people closest to me don't support or understand my dreams and goals.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">14.</div><div class="q-text">My home or workspace feels heavy, draining, or uninspiring to me.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">15.</div><div class="q-text">I spend significant time consuming negative media or around people who gossip and complain.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
+      <div class="block-label-row"><span class="block-label-name">Wrong Environment</span><span class="block-label-num">Block 5</span></div>
+      <div class="q-row"><div class="q-num">13.</div><div class="q-text">The people closest to me don't support or understand my dreams and goals.</div><div class="q-circles" data-q="13"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">14.</div><div class="q-text">My home or workspace feels heavy, draining, or uninspiring to me.</div><div class="q-circles" data-q="14"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">15.</div><div class="q-text">I spend significant time consuming negative media or around people who gossip and complain.</div><div class="q-circles" data-q="15"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
     </div>
   </section>
 
@@ -307,24 +357,24 @@
     </div>
 
     <div class="block-card">
-      <div class="block-label-row"><span class="block-label-name">Bullshit Rules (Brules)</span><span class="block-label-num">Block 6 &middot; Q16–Q18</span></div>
-      <div class="q-row"><div class="q-num">16.</div><div class="q-text">I carry beliefs from my upbringing about money, success, or love that I know aren't serving me.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">17.</div><div class="q-text">Part of me believes that being wealthy, visible, or highly successful is unsafe or morally wrong.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">18.</div><div class="q-text">I catch myself repeating family sayings like "money doesn't grow on trees" or "people like us don't do that."</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
+      <div class="block-label-row"><span class="block-label-name">Bullshit Rules (Brules)</span><span class="block-label-num">Block 6</span></div>
+      <div class="q-row"><div class="q-num">16.</div><div class="q-text">I carry beliefs from my upbringing about money, success, or love that I know aren't serving me.</div><div class="q-circles" data-q="16"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">17.</div><div class="q-text">Part of me believes that being wealthy, visible, or highly successful is unsafe or morally wrong.</div><div class="q-circles" data-q="17"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">18.</div><div class="q-text">I catch myself repeating family sayings like "money doesn't grow on trees" or "people like us don't do that."</div><div class="q-circles" data-q="18"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
     </div>
 
     <div class="block-card">
-      <div class="block-label-row"><span class="block-label-name">Visualization from Lack</span><span class="block-label-num">Block 7 &middot; Q19–Q21</span></div>
-      <div class="q-row"><div class="q-num">19.</div><div class="q-text">When I visualize my goals, I feel the painful gap between where I am and where I want to be.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">20.</div><div class="q-text">Looking at my vision board or thinking about my dreams makes me feel sad or frustrated rather than inspired.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">21.</div><div class="q-text">I find myself thinking "I want it so badly" with a feeling of longing or yearning.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
+      <div class="block-label-row"><span class="block-label-name">Visualization from Lack</span><span class="block-label-num">Block 7</span></div>
+      <div class="q-row"><div class="q-num">19.</div><div class="q-text">When I visualize my goals, I feel the painful gap between where I am and where I want to be.</div><div class="q-circles" data-q="19"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">20.</div><div class="q-text">Looking at my vision board or thinking about my dreams makes me feel sad or frustrated rather than inspired.</div><div class="q-circles" data-q="20"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">21.</div><div class="q-text">I find myself thinking "I want it so badly" with a feeling of longing or yearning.</div><div class="q-circles" data-q="21"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
     </div>
 
     <div class="block-card">
-      <div class="block-label-row"><span class="block-label-name">Time Lag Frustration</span><span class="block-label-num">Block 8 &middot; Q22–Q24</span></div>
-      <div class="q-row"><div class="q-num">22.</div><div class="q-text">I feel frustrated that my manifesting practices haven't produced visible results yet.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">23.</div><div class="q-text">I frequently catch myself thinking "this should have happened by now" or "I'm running out of time."</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">24.</div><div class="q-text">I've considered giving up on manifesting because results aren't coming fast enough.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
+      <div class="block-label-row"><span class="block-label-name">Time Lag Frustration</span><span class="block-label-num">Block 8</span></div>
+      <div class="q-row"><div class="q-num">22.</div><div class="q-text">I feel frustrated that my manifesting practices haven't produced visible results yet.</div><div class="q-circles" data-q="22"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">23.</div><div class="q-text">I frequently catch myself thinking "this should have happened by now" or "I'm running out of time."</div><div class="q-circles" data-q="23"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">24.</div><div class="q-text">I've considered giving up on manifesting because results aren't coming fast enough.</div><div class="q-circles" data-q="24"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
     </div>
   </section>
 
@@ -336,52 +386,122 @@
     </div>
 
     <div class="block-card">
-      <div class="block-label-row"><span class="block-label-name">Surrender Block</span><span class="block-label-num">Block 9 &middot; Q25–Q27</span></div>
-      <div class="q-row"><div class="q-num">25.</div><div class="q-text">I need to control exactly how and when my goals will manifest — I can't let go of the process.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">26.</div><div class="q-text">When things don't go according to my plan, I feel anxious rather than curious about where life is leading me.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">27.</div><div class="q-text">I find it very hard to trust that the universe is orchestrating things in my favor behind the scenes.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
+      <div class="block-label-row"><span class="block-label-name">Surrender Block</span><span class="block-label-num">Block 9</span></div>
+      <div class="q-row"><div class="q-num">25.</div><div class="q-text">I need to control exactly how and when my goals will manifest — I can't let go of the process.</div><div class="q-circles" data-q="25"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">26.</div><div class="q-text">When things don't go according to my plan, I feel anxious rather than curious about where life is leading me.</div><div class="q-circles" data-q="26"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">27.</div><div class="q-text">I find it very hard to trust that the universe is orchestrating things in my favor behind the scenes.</div><div class="q-circles" data-q="27"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
     </div>
 
     <div class="block-card">
-      <div class="block-label-row"><span class="block-label-name">Quantum Leap Syndrome</span><span class="block-label-num">Block 10 &middot; Q28–Q30</span></div>
-      <div class="q-row"><div class="q-num">28.</div><div class="q-text">When success arrives faster or bigger than I expected, I feel overwhelmed or panicked rather than excited.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">29.</div><div class="q-text">I've turned down or sabotaged good opportunities because they felt "too good to be true."</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
-      <div class="q-row"><div class="q-num">30.</div><div class="q-text">When I get what I've been asking for, I feel like a fraud — as if I'll be found out any moment.</div><div class="q-circles"><div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div></div></div>
+      <div class="block-label-row"><span class="block-label-name">Quantum Leap Syndrome</span><span class="block-label-num">Block 10</span></div>
+      <div class="q-row"><div class="q-num">28.</div><div class="q-text">When success arrives faster or bigger than I expected, I feel overwhelmed or panicked rather than excited.</div><div class="q-circles" data-q="28"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">29.</div><div class="q-text">I've turned down or sabotaged good opportunities because they felt "too good to be true."</div><div class="q-circles" data-q="29"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
+      <div class="q-row"><div class="q-num">30.</div><div class="q-text">When I get what I've been asking for, I feel like a fraud — as if I'll be found out any moment.</div><div class="q-circles" data-q="30"><div class="c" data-v="1">1</div><div class="c" data-v="2">2</div><div class="c" data-v="3">3</div><div class="c" data-v="4">4</div><div class="c" data-v="5">5</div></div></div>
     </div>
   </section>
 
-  <!-- ===== SCORING ===== -->
-  <section class="mv-container" style="padding: 2rem 0 5rem 0;">
-    <h2 class="title-bold-3" style="margin-bottom: 0.5rem;">Scoring</h2>
-    <p class="body" style="color: #4b5563; margin-bottom: 2rem;">Add the three question scores for each block (max 15). Then circle your <strong>three highest-scoring blocks</strong> — these are your primary areas to work on.</p>
+  <!-- ===== RESULTS ===== -->
+  <section class="mv-container" style="padding: 0 0 5rem 0;" id="results-section">
+    <div class="results-card">
+      <h2 class="title-bold-3" style="text-align: center; margin: 0 0 0.5rem 0;">Your Results</h2>
+      <p class="body" style="text-align: center; color: #4b5563; margin-bottom: 1.5rem;">Your top 3 manifesting blocks — the primary areas to work on with your coach.</p>
 
-    <div style="background: white; border-radius: 1rem; border: 1px solid #e8e0f0; overflow: hidden;">
-      <table class="scoring-table">
-        <thead>
-          <tr><th>#</th><th>Block</th><th class="center">Q</th><th class="center">+</th><th class="center">+</th><th class="center">=</th><th>Score</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td><div class="s-name">The Upper Limit Problem</div><div class="s-cat">The Car &middot; Inner Identity</div></td><td class="center">Q1</td><td class="center">Q2</td><td class="center">Q3</td><td class="center">=</td><td style="text-align:center"><div class="score-box"></div></td></tr>
-          <tr><td>2</td><td><div class="s-name">Emotional Incongruence</div><div class="s-cat">The Car &middot; Inner Identity</div></td><td class="center">Q4</td><td class="center">Q5</td><td class="center">Q6</td><td class="center">=</td><td style="text-align:center"><div class="score-box"></div></td></tr>
-          <tr><td>3</td><td><div class="s-name">Fear of Success</div><div class="s-cat">The Car &middot; Inner Identity</div></td><td class="center">Q7</td><td class="center">Q8</td><td class="center">Q9</td><td class="center">=</td><td style="text-align:center"><div class="score-box"></div></td></tr>
-          <tr><td>4</td><td><div class="s-name">Hustle Mode</div><div class="s-cat">The Fuel &middot; Energetic Alignment</div></td><td class="center">Q10</td><td class="center">Q11</td><td class="center">Q12</td><td class="center">=</td><td style="text-align:center"><div class="score-box"></div></td></tr>
-          <tr><td>5</td><td><div class="s-name">Wrong Environment</div><div class="s-cat">The Fuel &middot; Energetic Alignment</div></td><td class="center">Q13</td><td class="center">Q14</td><td class="center">Q15</td><td class="center">=</td><td style="text-align:center"><div class="score-box"></div></td></tr>
-          <tr><td>6</td><td><div class="s-name">Bullshit Rules (Brules)</div><div class="s-cat">The GPS &middot; Subconscious Programming</div></td><td class="center">Q16</td><td class="center">Q17</td><td class="center">Q18</td><td class="center">=</td><td style="text-align:center"><div class="score-box"></div></td></tr>
-          <tr><td>7</td><td><div class="s-name">Visualization from Lack</div><div class="s-cat">The GPS &middot; Subconscious Programming</div></td><td class="center">Q19</td><td class="center">Q20</td><td class="center">Q21</td><td class="center">=</td><td style="text-align:center"><div class="score-box"></div></td></tr>
-          <tr><td>8</td><td><div class="s-name">Time Lag Frustration</div><div class="s-cat">The GPS &middot; Subconscious Programming</div></td><td class="center">Q22</td><td class="center">Q23</td><td class="center">Q24</td><td class="center">=</td><td style="text-align:center"><div class="score-box"></div></td></tr>
-          <tr><td>9</td><td><div class="s-name">Surrender Block</div><div class="s-cat">The Driver &middot; Manifesting Integration</div></td><td class="center">Q25</td><td class="center">Q26</td><td class="center">Q27</td><td class="center">=</td><td style="text-align:center"><div class="score-box"></div></td></tr>
-          <tr><td>10</td><td><div class="s-name">Quantum Leap Syndrome</div><div class="s-cat">The Driver &middot; Manifesting Integration</div></td><td class="center">Q28</td><td class="center">Q29</td><td class="center">Q30</td><td class="center">=</td><td style="text-align:center"><div class="score-box"></div></td></tr>
-        </tbody>
-      </table>
-    </div>
+      <div id="top3Container"></div>
 
-    <div class="top-three-card">
-      <h3 class="title-bold-5" style="text-align: center; margin: 0 0 1.5rem 0;">Your Top 3 Manifesting Blocks</h3>
-      <div class="rank-row"><div class="rank-num">1</div><div class="rank-line"></div><div class="rank-score">Score: ____</div></div>
-      <div class="rank-row"><div class="rank-num">2</div><div class="rank-line"></div><div class="rank-score">Score: ____</div></div>
-      <div class="rank-row"><div class="rank-num">3</div><div class="rank-line"></div><div class="rank-score">Score: ____</div></div>
+      <div class="all-scores">
+        <p class="overline-text" style="color: #7a12d4; margin-bottom: 1rem;">All Block Scores</p>
+        <div id="allScoresContainer"></div>
+      </div>
+
+      <div class="screenshot-hint">
+        Screenshot this page and send it to your coach
+      </div>
     </div>
   </section>
+
+<script>
+(function() {
+  var blocks = [
+    { id: 1, name: 'The Upper Limit Problem', cat: 'The Car · Inner Identity', qs: [1,2,3] },
+    { id: 2, name: 'Emotional Incongruence', cat: 'The Car · Inner Identity', qs: [4,5,6] },
+    { id: 3, name: 'Fear of Success', cat: 'The Car · Inner Identity', qs: [7,8,9] },
+    { id: 4, name: 'Hustle Mode', cat: 'The Fuel · Energetic Alignment', qs: [10,11,12] },
+    { id: 5, name: 'Wrong Environment', cat: 'The Fuel · Energetic Alignment', qs: [13,14,15] },
+    { id: 6, name: 'Bullshit Rules (Brules)', cat: 'The GPS · Subconscious Programming', qs: [16,17,18] },
+    { id: 7, name: 'Visualization from Lack', cat: 'The GPS · Subconscious Programming', qs: [19,20,21] },
+    { id: 8, name: 'Time Lag Frustration', cat: 'The GPS · Subconscious Programming', qs: [22,23,24] },
+    { id: 9, name: 'Surrender Block', cat: 'The Driver · Manifesting Integration', qs: [25,26,27] },
+    { id: 10, name: 'Quantum Leap Syndrome', cat: 'The Driver · Manifesting Integration', qs: [28,29,30] }
+  ];
+
+  var answers = {};
+
+  document.addEventListener('click', function(e) {
+    var circle = e.target.closest('.c');
+    if (!circle) return;
+    var group = circle.closest('.q-circles');
+    var q = parseInt(group.getAttribute('data-q'));
+    var v = parseInt(circle.getAttribute('data-v'));
+
+    // Deselect siblings
+    group.querySelectorAll('.c').forEach(function(c) { c.classList.remove('selected'); });
+    circle.classList.add('selected');
+    answers[q] = v;
+
+    updateProgress();
+    if (Object.keys(answers).length === 30) showResults();
+  });
+
+  function updateProgress() {
+    var count = Object.keys(answers).length;
+    document.getElementById('progressFill').style.width = (count / 30 * 100) + '%';
+    document.getElementById('progressText').textContent = count + ' / 30';
+  }
+
+  function showResults() {
+    // Calculate scores
+    var scored = blocks.map(function(b) {
+      var total = 0;
+      b.qs.forEach(function(q) { total += (answers[q] || 0); });
+      return { name: b.name, cat: b.cat, score: total };
+    });
+
+    // Sort for top 3
+    var sorted = scored.slice().sort(function(a, b) { return b.score - a.score; });
+    var top3Names = sorted.slice(0, 3).map(function(s) { return s.name; });
+
+    // Render top 3
+    var top3Html = '';
+    for (var i = 0; i < 3; i++) {
+      var s = sorted[i];
+      top3Html += '<div class="top-block-row">' +
+        '<div class="rank-num">' + (i + 1) + '</div>' +
+        '<div class="top-block-info"><div class="top-block-name">' + s.name + '</div><div class="top-block-cat">' + s.cat + '</div></div>' +
+        '<div class="top-block-score">' + s.score + '<span class="top-block-max"> / 15</span></div>' +
+        '</div>';
+    }
+    document.getElementById('top3Container').innerHTML = top3Html;
+
+    // Render all scores as bars
+    var barsHtml = '';
+    scored.forEach(function(s) {
+      var pct = (s.score / 15 * 100);
+      var isTop = top3Names.indexOf(s.name) !== -1;
+      barsHtml += '<div class="score-bar-row">' +
+        '<div class="score-bar-label">' + s.name + '</div>' +
+        '<div class="score-bar-track"><div class="score-bar-fill' + (isTop ? ' top3' : '') + '" style="width: ' + pct + '%;"></div></div>' +
+        '<div class="score-bar-val">' + s.score + '</div>' +
+        '</div>';
+    });
+    document.getElementById('allScoresContainer').innerHTML = barsHtml;
+
+    // Show results
+    var section = document.getElementById('results-section');
+    section.classList.add('visible');
+    setTimeout(function() { section.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+  }
+})();
+</script>
 
 </body>
 </html>
