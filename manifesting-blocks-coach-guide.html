@@ -4,36 +4,67 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manifesting Blocks &mdash; Coach Instructional Guide &mdash; Mindvalley</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mindvalley/design-system@4.2.0/dist/typography/mindvalley/fonts.css">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap');
-
+  /* ===== Mindvalley Design Tokens ===== */
   :root {
-    --mv-deep: #0B0B1A;
-    --mv-surface: #12122A;
-    --mv-card: #1A1A3E;
-    --mv-card-hover: #222254;
-    --mv-purple: #7A12D4;
-    --mv-purple-light: #9B4DFF;
-    --mv-purple-glow: rgba(122, 18, 212, 0.25);
-    --mv-purple-subtle: rgba(122, 18, 212, 0.08);
-    --mv-gold: #F5A623;
-    --mv-gold-light: #FFD07B;
-    --mv-gold-glow: rgba(245, 166, 35, 0.15);
-    --mv-white: #FFFFFF;
-    --mv-text: #E0DFF4;
-    --mv-text-dim: #8B8AAE;
-    --mv-text-muted: #5C5B7A;
-    --mv-border: rgba(255,255,255,0.08);
-    --mv-border-light: rgba(255,255,255,0.12);
+    --purple-50: #f8efff;
+    --purple-100: #f5e7ff;
+    --purple-200: #eed8fe;
+    --purple-300: #e0b8fe;
+    --purple-400: #d299fe;
+    --purple-500: #9b37f2;
+    --purple-600: #7a12d4;
+    --purple-700: #680fb4;
+    --purple-800: #4f0c8a;
+    --purple-900: #37085f;
+    --purple-tint: #9b37f2;
+    --purple-600-10a: #7a12d41a;
+
+    --cool-grey-100: #f9f9f9;
+    --cool-grey-150: #f3f4f6;
+    --cool-grey-200: #f3f4f6;
+    --cool-grey-250: #dfe1e5;
+    --cool-grey-300: #ced1d7;
+    --cool-grey-350: #b3b8c1;
+    --cool-grey-400: #979ca5;
+    --cool-grey-450: #71767f;
+    --cool-grey-500: #595e67;
+    --cool-grey-550: #41464f;
+    --cool-grey-600: #292d38;
+    --cool-grey-650: #181d26;
+    --cool-grey-700: #0f131a;
+
+    --orange-500: #ff931f;
+    --orange-600: #ed6325;
+    --yellow-500: #f5c918;
+
+    --white-6a: #ffffff0f;
+    --white-8a: #ffffff14;
+    --white-12a: #ffffff1f;
+
+    /* Semantic */
+    --bg: var(--cool-grey-700);
+    --surface: var(--cool-grey-650);
+    --card: var(--cool-grey-600);
+    --text: #E0DFF4;
+    --text-dim: var(--cool-grey-350);
+    --text-muted: var(--cool-grey-450);
+    --border: var(--white-8a);
+    --border-light: var(--white-12a);
+    --accent: var(--purple-500);
+    --gold: var(--orange-500);
+    --gold-light: #FFD07B;
+    --white: #ffffff;
     --radius: 12px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--mv-deep);
-    color: var(--mv-text);
+    font-family: "Sharp Grotesk Cyr Book 19", "Sharp Grotesk Cyr Medium 19", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
@@ -46,26 +77,24 @@
 
   /* Typography */
   h1 {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: "Sharp Grotesk Cyr Semibold 20", sans-serif;
     font-size: 36px;
-    font-weight: 400;
-    color: var(--mv-white);
+    color: var(--white);
   }
 
   h2 {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: "Sharp Grotesk Cyr Semibold 20", sans-serif;
     font-size: 24px;
-    font-weight: 400;
-    color: var(--mv-white);
+    color: var(--white);
     margin-bottom: 6px;
   }
 
   h3 {
+    font-family: "Sharp Grotesk Cyr Medium 20", sans-serif;
     font-size: 11px;
-    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--mv-gold);
+    color: var(--gold);
     margin-bottom: 10px;
     margin-top: 24px;
   }
@@ -78,18 +107,18 @@
     font-size: 14.5px;
   }
 
-  li { margin-bottom: 6px; color: var(--mv-text); }
+  li { margin-bottom: 6px; color: var(--text); }
 
-  em { color: var(--mv-gold-light); font-style: italic; }
+  em { color: var(--gold-light); font-style: italic; }
 
-  strong { color: var(--mv-white); }
+  strong { color: var(--white); }
 
   /* ===== HEADER ===== */
   .header {
     text-align: center;
     margin-bottom: 48px;
     padding-bottom: 40px;
-    border-bottom: 1px solid var(--mv-border);
+    border-bottom: 1px solid var(--border);
     position: relative;
   }
 
@@ -101,47 +130,41 @@
     transform: translateX(-50%);
     width: 120px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--mv-purple), transparent);
+    background: linear-gradient(90deg, transparent, var(--purple-600), transparent);
   }
 
   .mv-logo {
+    font-family: "Sharp Grotesk Cyr Semibold 20", sans-serif;
     font-size: 11px;
-    font-weight: 600;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--mv-purple-light);
+    color: var(--purple-500);
     margin-bottom: 20px;
   }
 
-  .header h1 {
-    background: linear-gradient(135deg, #fff 0%, #E0DFF4 50%, var(--mv-gold-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 4px;
-  }
+  .header h1 { margin-bottom: 4px; }
 
   .header .sub-h1 {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: "Sharp Grotesk Cyr Medium 19", sans-serif;
     font-size: 24px;
-    color: var(--mv-text-dim);
+    color: var(--text-dim);
     margin-bottom: 8px;
   }
 
   .header .subtitle {
+    font-family: "Sharp Grotesk Cyr Medium 20", sans-serif;
     font-size: 13px;
-    font-weight: 400;
-    color: var(--mv-text-muted);
+    color: var(--text-muted);
     letter-spacing: 1.5px;
     text-transform: uppercase;
   }
 
   .header .tagline {
+    font-family: "Sharp Grotesk Cyr Book Itl 19", "Sharp Grotesk Cyr Book 19", sans-serif;
     font-size: 15px;
-    color: var(--mv-text-dim);
+    color: var(--text-dim);
     margin-top: 16px;
     font-style: italic;
-    font-weight: 300;
   }
 
   /* ===== CAR METAPHOR GRID ===== */
@@ -153,13 +176,12 @@
   }
 
   .metaphor-card {
-    background: var(--mv-surface);
-    border: 1px solid var(--mv-border-light);
+    background: var(--surface);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius);
     padding: 24px;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.2s;
   }
 
   .metaphor-card::before {
@@ -169,7 +191,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--mv-purple), var(--mv-purple-light));
+    background: linear-gradient(90deg, var(--purple-600), var(--purple-500));
   }
 
   .metaphor-card .mc-icon {
@@ -179,37 +201,34 @@
   }
 
   .metaphor-card .mc-title {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: "Sharp Grotesk Cyr Semibold 20", sans-serif;
     font-size: 20px;
-    color: var(--mv-white);
+    color: var(--white);
     margin-bottom: 2px;
   }
 
   .metaphor-card .mc-meaning {
+    font-family: "Sharp Grotesk Cyr Medium 20", sans-serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--mv-purple-light);
+    color: var(--purple-500);
     margin-bottom: 14px;
   }
 
   .metaphor-card .mc-blocks {
     font-size: 13.5px;
     line-height: 1.6;
-    color: var(--mv-text-dim);
+    color: var(--text-dim);
   }
 
-  .metaphor-card .mc-blocks span {
-    display: block;
-    padding: 2px 0;
-  }
-
-  .metaphor-card .mc-blocks strong { color: var(--mv-text-dim); font-weight: 600; }
+  .metaphor-card .mc-blocks span { display: block; padding: 2px 0; }
+  .metaphor-card .mc-blocks strong { color: var(--text-dim); }
 
   /* ===== QUICK REFERENCE ===== */
   .quick-ref {
-    background: var(--mv-surface);
-    border: 1px solid var(--mv-border-light);
+    background: var(--surface);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius);
     padding: 32px;
     margin: 48px 0;
@@ -224,7 +243,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--mv-purple), var(--mv-gold), var(--mv-purple));
+    background: linear-gradient(90deg, var(--purple-600), var(--gold), var(--purple-600));
   }
 
   .quick-ref h2 { text-align: center; margin-bottom: 20px; }
@@ -241,48 +260,44 @@
   .qr-table th {
     text-align: left;
     padding: 10px 12px;
+    font-family: "Sharp Grotesk Cyr Medium 20", sans-serif;
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--mv-purple-light);
-    background: var(--mv-card);
-    font-weight: 600;
-    border-bottom: 1px solid var(--mv-border);
+    color: var(--purple-500);
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
   }
 
   .qr-table td {
     padding: 10px 12px;
-    border-bottom: 1px solid var(--mv-border);
+    border-bottom: 1px solid var(--border);
     vertical-align: top;
-    color: var(--mv-text-dim);
+    color: var(--text-dim);
   }
 
   .qr-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
-  .qr-num { font-weight: 600; color: var(--mv-text-muted); width: 30px; }
-  .qr-name { font-weight: 600; white-space: nowrap; color: var(--mv-white); }
-  .qr-cat { font-size: 11px; color: var(--mv-text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .qr-num { font-family: "Sharp Grotesk Cyr Medium 19", sans-serif; color: var(--text-muted); width: 30px; }
+  .qr-name { font-family: "Sharp Grotesk Cyr Medium 19", sans-serif; white-space: nowrap; color: var(--white); }
+  .qr-cat { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 
   /* ===== CLIENT LANGUAGE CHEAT SHEET ===== */
-  .cheat-sheet {
-    margin: 48px 0;
-  }
-
+  .cheat-sheet { margin: 48px 0; }
   .cheat-sheet > h2 { text-align: center; margin-bottom: 24px; }
-
-  .cheat-sheet > p { text-align: center; color: var(--mv-text-dim); font-size: 14px; margin-bottom: 28px; }
+  .cheat-sheet > p { text-align: center; color: var(--text-dim); font-size: 14px; margin-bottom: 28px; }
 
   .cs-block {
     margin-bottom: 20px;
-    background: var(--mv-surface);
-    border: 1px solid var(--mv-border);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 16px 20px;
   }
 
   .cs-block-name {
-    font-weight: 600;
+    font-family: "Sharp Grotesk Cyr Medium 19", sans-serif;
     font-size: 14px;
-    color: var(--mv-gold);
+    color: var(--gold);
     margin-bottom: 8px;
   }
 
@@ -290,33 +305,35 @@
     padding-left: 16px;
     font-size: 13.5px;
     font-style: italic;
-    color: var(--mv-text-dim);
+    color: var(--text-dim);
     margin-bottom: 0;
   }
 
-  .cs-phrases li { margin-bottom: 4px; color: var(--mv-text-dim); }
+  .cs-phrases li { margin-bottom: 4px; color: var(--text-dim); }
 
   /* ===== BLOCK DETAIL SECTIONS ===== */
   .section-divider {
     text-align: center;
     margin: 56px 0 16px;
-    color: var(--mv-text-muted);
-    font-size: 14px;
+    font-family: "Sharp Grotesk Cyr Medium 20", sans-serif;
+    color: var(--text-muted);
+    font-size: 12px;
     letter-spacing: 8px;
+    text-transform: uppercase;
   }
 
   .section-divider-line {
     width: 100%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--mv-purple), transparent);
+    background: linear-gradient(90deg, transparent, var(--purple-600), transparent);
     margin: 8px 0 40px;
   }
 
   .block-section {
     margin: 48px 0;
     padding: 32px;
-    background: var(--mv-surface);
-    border: 1px solid var(--mv-border);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
     position: relative;
     overflow: hidden;
@@ -329,45 +346,47 @@
     left: 0;
     width: 3px;
     height: 100%;
-    background: linear-gradient(180deg, var(--mv-purple), var(--mv-gold), var(--mv-purple));
+    background: linear-gradient(180deg, var(--purple-600), var(--gold), var(--purple-600));
   }
 
   .block-number {
+    font-family: "Sharp Grotesk Cyr Medium 20", sans-serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--mv-text-muted);
+    color: var(--text-muted);
     margin-bottom: 4px;
   }
 
   .block-category-badge {
     display: inline-block;
+    font-family: "Sharp Grotesk Cyr Medium 20", sans-serif;
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--mv-purple-light);
-    background: var(--mv-purple-subtle);
+    color: var(--purple-500);
+    background: var(--purple-600-10a);
     border: 1px solid rgba(122, 18, 212, 0.2);
     padding: 4px 12px;
     border-radius: 20px;
     margin-bottom: 10px;
-    font-weight: 600;
   }
 
   .block-section h2 { margin-bottom: 10px; }
 
   .block-definition {
+    font-family: "Sharp Grotesk Cyr Book Itl 19", "Sharp Grotesk Cyr Book 19", sans-serif;
     font-size: 15px;
     font-style: italic;
-    color: var(--mv-text-dim);
+    color: var(--text-dim);
     margin-bottom: 16px;
     padding-left: 16px;
-    border-left: 2px solid var(--mv-purple);
+    border-left: 2px solid var(--purple-600);
     line-height: 1.6;
   }
 
   .core-belief {
-    background: linear-gradient(135deg, rgba(122,18,212,0.1) 0%, rgba(245,166,35,0.08) 100%);
+    background: linear-gradient(135deg, rgba(122,18,212,0.1) 0%, rgba(255,147,31,0.08) 100%);
     border: 1px solid rgba(122, 18, 212, 0.15);
     padding: 16px 20px;
     border-radius: 8px;
@@ -376,86 +395,80 @@
   }
 
   .core-belief .cb-label {
+    font-family: "Sharp Grotesk Cyr Medium 20", sans-serif;
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--mv-gold);
+    color: var(--gold);
     display: block;
     margin-bottom: 6px;
-    font-weight: 600;
   }
 
   .core-belief .cb-text {
-    color: var(--mv-white);
+    font-family: "Sharp Grotesk Cyr Book Itl 19", "Sharp Grotesk Cyr Book 19", sans-serif;
+    color: var(--white);
     font-style: italic;
     font-size: 16px;
   }
 
   .exercise-box {
-    background: var(--mv-deep);
-    border: 1px solid var(--mv-border);
+    background: var(--bg);
+    border: 1px solid var(--border);
     padding: 16px 20px;
     margin-bottom: 10px;
     border-radius: 8px;
   }
 
   .exercise-box .ex-title {
-    font-weight: 600;
+    font-family: "Sharp Grotesk Cyr Medium 19", sans-serif;
     font-size: 14px;
     margin-bottom: 6px;
-    color: var(--mv-gold);
+    color: var(--gold);
   }
 
   .exercise-box p {
     font-size: 13.5px;
     margin-bottom: 4px;
-    color: var(--mv-text-dim);
+    color: var(--text-dim);
     line-height: 1.6;
   }
 
-  .exercise-box em { color: var(--mv-gold-light); }
+  .exercise-box em { color: var(--gold-light); }
 
   /* ===== FOOTER ===== */
   .footer {
     text-align: center;
     margin-top: 56px;
     padding-top: 24px;
-    border-top: 1px solid var(--mv-border);
+    border-top: 1px solid var(--border);
     font-size: 12px;
-    color: var(--mv-text-muted);
+    color: var(--text-muted);
   }
 
   .footer .mv-mark {
-    color: var(--mv-purple-light);
-    font-weight: 600;
+    font-family: "Sharp Grotesk Cyr Semibold 20", sans-serif;
+    color: var(--purple-500);
   }
 
   /* ===== PRINT ===== */
   @media print {
     :root {
-      --mv-deep: #fff;
-      --mv-surface: #f7f7fa;
-      --mv-card: #eeeef4;
-      --mv-text: #1a1a2e;
-      --mv-text-dim: #444;
-      --mv-text-muted: #777;
-      --mv-border: #ddd;
-      --mv-border-light: #ccc;
-      --mv-white: #1a1a2e;
-      --mv-purple-light: #4F0C8A;
-      --mv-purple-subtle: rgba(79, 12, 138, 0.06);
-      --mv-gold: #a87000;
-      --mv-gold-light: #a87000;
+      --bg: #ffffff;
+      --surface: #f9f9f9;
+      --card: #f3f4f6;
+      --text: #0f131a;
+      --text-dim: #41464f;
+      --text-muted: #71767f;
+      --border: #ced1d7;
+      --border-light: #dfe1e5;
+      --white: #0f131a;
+      --gold: #ed6325;
+      --gold-light: #ed6325;
     }
 
-    body { background: #fff; color: #1a1a2e; }
+    body { background: #fff; color: #0f131a; }
     .page { padding: 20px 28px; max-width: 100%; }
-
-    .header h1 {
-      background: none;
-      -webkit-text-fill-color: #1a1a2e;
-      font-size: 28px;
-    }
+    .header h1 { font-size: 28px; }
 
     .block-section {
       page-break-inside: avoid;
@@ -471,8 +484,8 @@
     }
 
     .cheat-sheet { page-break-before: always; }
-    em { color: #a87000; }
-    .exercise-box em { color: #a87000; }
+    em { color: #ed6325; }
+    .exercise-box em { color: #ed6325; }
   }
 </style>
 </head>
