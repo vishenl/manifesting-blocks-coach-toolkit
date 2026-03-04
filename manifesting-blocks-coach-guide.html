@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manifesting Blocks &mdash; Coach Instructional Guide &mdash; Mindvalley</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap');
+
+  :root {
+    --mv-deep: #0B0B1A;
+    --mv-surface: #12122A;
+    --mv-card: #1A1A3E;
+    --mv-card-hover: #222254;
+    --mv-purple: #7A12D4;
+    --mv-purple-light: #9B4DFF;
+    --mv-purple-glow: rgba(122, 18, 212, 0.25);
+    --mv-purple-subtle: rgba(122, 18, 212, 0.08);
+    --mv-gold: #F5A623;
+    --mv-gold-light: #FFD07B;
+    --mv-gold-glow: rgba(245, 166, 35, 0.15);
+    --mv-white: #FFFFFF;
+    --mv-text: #E0DFF4;
+    --mv-text-dim: #8B8AAE;
+    --mv-text-muted: #5C5B7A;
+    --mv-border: rgba(255,255,255,0.08);
+    --mv-border-light: rgba(255,255,255,0.12);
+    --radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--mv-deep);
+    color: var(--mv-text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 48px 32px 64px;
+  }
+
+  /* Typography */
+  h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--mv-white);
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--mv-white);
+    margin-bottom: 6px;
+  }
+
+  h3 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--mv-gold);
+    margin-bottom: 10px;
+    margin-top: 24px;
+  }
+
+  p { margin-bottom: 10px; font-size: 14.5px; }
+
+  ul, ol {
+    margin-left: 20px;
+    margin-bottom: 12px;
+    font-size: 14.5px;
+  }
+
+  li { margin-bottom: 6px; color: var(--mv-text); }
+
+  em { color: var(--mv-gold-light); font-style: italic; }
+
+  strong { color: var(--mv-white); }
+
+  /* ===== HEADER ===== */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--mv-border);
+    position: relative;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--mv-purple), transparent);
+  }
+
+  .mv-logo {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--mv-purple-light);
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    background: linear-gradient(135deg, #fff 0%, #E0DFF4 50%, var(--mv-gold-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+  }
+
+  .header .sub-h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 24px;
+    color: var(--mv-text-dim);
+    margin-bottom: 8px;
+  }
+
+  .header .subtitle {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--mv-text-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .header .tagline {
+    font-size: 15px;
+    color: var(--mv-text-dim);
+    margin-top: 16px;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  /* ===== CAR METAPHOR GRID ===== */
+  .metaphor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 32px 0 48px;
+  }
+
+  .metaphor-card {
+    background: var(--mv-surface);
+    border: 1px solid var(--mv-border-light);
+    border-radius: var(--radius);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .metaphor-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--mv-purple), var(--mv-purple-light));
+  }
+
+  .metaphor-card .mc-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .metaphor-card .mc-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 20px;
+    color: var(--mv-white);
+    margin-bottom: 2px;
+  }
+
+  .metaphor-card .mc-meaning {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--mv-purple-light);
+    margin-bottom: 14px;
+  }
+
+  .metaphor-card .mc-blocks {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--mv-text-dim);
+  }
+
+  .metaphor-card .mc-blocks span {
+    display: block;
+    padding: 2px 0;
+  }
+
+  .metaphor-card .mc-blocks strong { color: var(--mv-text-dim); font-weight: 600; }
+
+  /* ===== QUICK REFERENCE ===== */
+  .quick-ref {
+    background: var(--mv-surface);
+    border: 1px solid var(--mv-border-light);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quick-ref::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--mv-purple), var(--mv-gold), var(--mv-purple));
+  }
+
+  .quick-ref h2 { text-align: center; margin-bottom: 20px; }
+
+  .qr-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 13.5px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .qr-table th {
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--mv-purple-light);
+    background: var(--mv-card);
+    font-weight: 600;
+    border-bottom: 1px solid var(--mv-border);
+  }
+
+  .qr-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--mv-border);
+    vertical-align: top;
+    color: var(--mv-text-dim);
+  }
+
+  .qr-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  .qr-num { font-weight: 600; color: var(--mv-text-muted); width: 30px; }
+  .qr-name { font-weight: 600; white-space: nowrap; color: var(--mv-white); }
+  .qr-cat { font-size: 11px; color: var(--mv-text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* ===== CLIENT LANGUAGE CHEAT SHEET ===== */
+  .cheat-sheet {
+    margin: 48px 0;
+  }
+
+  .cheat-sheet > h2 { text-align: center; margin-bottom: 24px; }
+
+  .cheat-sheet > p { text-align: center; color: var(--mv-text-dim); font-size: 14px; margin-bottom: 28px; }
+
+  .cs-block {
+    margin-bottom: 20px;
+    background: var(--mv-surface);
+    border: 1px solid var(--mv-border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+  }
+
+  .cs-block-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--mv-gold);
+    margin-bottom: 8px;
+  }
+
+  .cs-phrases {
+    padding-left: 16px;
+    font-size: 13.5px;
+    font-style: italic;
+    color: var(--mv-text-dim);
+    margin-bottom: 0;
+  }
+
+  .cs-phrases li { margin-bottom: 4px; color: var(--mv-text-dim); }
+
+  /* ===== BLOCK DETAIL SECTIONS ===== */
+  .section-divider {
+    text-align: center;
+    margin: 56px 0 16px;
+    color: var(--mv-text-muted);
+    font-size: 14px;
+    letter-spacing: 8px;
+  }
+
+  .section-divider-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--mv-purple), transparent);
+    margin: 8px 0 40px;
+  }
+
+  .block-section {
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--mv-surface);
+    border: 1px solid var(--mv-border);
+    border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .block-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--mv-purple), var(--mv-gold), var(--mv-purple));
+  }
+
+  .block-number {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--mv-text-muted);
+    margin-bottom: 4px;
+  }
+
+  .block-category-badge {
+    display: inline-block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--mv-purple-light);
+    background: var(--mv-purple-subtle);
+    border: 1px solid rgba(122, 18, 212, 0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .block-section h2 { margin-bottom: 10px; }
+
+  .block-definition {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--mv-text-dim);
+    margin-bottom: 16px;
+    padding-left: 16px;
+    border-left: 2px solid var(--mv-purple);
+    line-height: 1.6;
+  }
+
+  .core-belief {
+    background: linear-gradient(135deg, rgba(122,18,212,0.1) 0%, rgba(245,166,35,0.08) 100%);
+    border: 1px solid rgba(122, 18, 212, 0.15);
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .core-belief .cb-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--mv-gold);
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  .core-belief .cb-text {
+    color: var(--mv-white);
+    font-style: italic;
+    font-size: 16px;
+  }
+
+  .exercise-box {
+    background: var(--mv-deep);
+    border: 1px solid var(--mv-border);
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+
+  .exercise-box .ex-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: var(--mv-gold);
+  }
+
+  .exercise-box p {
+    font-size: 13.5px;
+    margin-bottom: 4px;
+    color: var(--mv-text-dim);
+    line-height: 1.6;
+  }
+
+  .exercise-box em { color: var(--mv-gold-light); }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mv-border);
+    font-size: 12px;
+    color: var(--mv-text-muted);
+  }
+
+  .footer .mv-mark {
+    color: var(--mv-purple-light);
+    font-weight: 600;
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    :root {
+      --mv-deep: #fff;
+      --mv-surface: #f7f7fa;
+      --mv-card: #eeeef4;
+      --mv-text: #1a1a2e;
+      --mv-text-dim: #444;
+      --mv-text-muted: #777;
+      --mv-border: #ddd;
+      --mv-border-light: #ccc;
+      --mv-white: #1a1a2e;
+      --mv-purple-light: #4F0C8A;
+      --mv-purple-subtle: rgba(79, 12, 138, 0.06);
+      --mv-gold: #a87000;
+      --mv-gold-light: #a87000;
+    }
+
+    body { background: #fff; color: #1a1a2e; }
+    .page { padding: 20px 28px; max-width: 100%; }
+
+    .header h1 {
+      background: none;
+      -webkit-text-fill-color: #1a1a2e;
+      font-size: 28px;
+    }
+
+    .block-section {
+      page-break-inside: avoid;
+      border: 1px solid #ccc;
+    }
+
+    .block-section::before { background: #4F0C8A; }
+
+    .metaphor-card, .quick-ref, .cs-block, .exercise-box, .core-belief,
+    .block-category-badge, .qr-table th {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .cheat-sheet { page-break-before: always; }
+    em { color: #a87000; }
+    .exercise-box em { color: #a87000; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ===== HEADER ===== -->
+  <div class="header">
+    <div class="mv-logo">Mindvalley</div>
+    <h1>Manifesting Blocks</h1>
+    <div class="sub-h1">Coach Instructional Guide</div>
+    <div class="subtitle">Manifesting Mastery Program</div>
+    <div class="tagline">A comprehensive reference for identifying, understanding, and coaching through the 10 manifesting blocks</div>
+  </div>
+
+  <!-- ===== CAR METAPHOR ===== -->
+  <h2 style="text-align: center; margin-bottom: 8px;">The Car Metaphor Framework</h2>
+  <p style="text-align: center; font-size: 14px; color: var(--mv-text-dim); margin-bottom: 24px;">
+    Every manifesting block maps to one part of a car. If any component is broken, the car can't reach its destination &mdash; no matter how clear the goal.
+  </p>
+
+  <div class="metaphor-grid">
+    <div class="metaphor-card">
+      <div class="mc-icon">&#x1F697;</div>
+      <div class="mc-title">The Car</div>
+      <div class="mc-meaning">Inner Identity</div>
+      <div class="mc-blocks">
+        <span><strong>1.</strong> The Upper Limit Problem</span>
+        <span><strong>2.</strong> Emotional Incongruence</span>
+        <span><strong>3.</strong> Fear of Success</span>
+      </div>
+    </div>
+    <div class="metaphor-card">
+      <div class="mc-icon">&#x26FD;</div>
+      <div class="mc-title">The Fuel</div>
+      <div class="mc-meaning">Energetic Alignment</div>
+      <div class="mc-blocks">
+        <span><strong>4.</strong> Hustle Mode</span>
+        <span><strong>5.</strong> Wrong Environment</span>
+      </div>
+    </div>
+    <div class="metaphor-card">
+      <div class="mc-icon">&#x1F4CD;</div>
+      <div class="mc-title">The GPS</div>
+      <div class="mc-meaning">Subconscious Programming</div>
+      <div class="mc-blocks">
+        <span><strong>6.</strong> Bullshit Rules (Brules)</span>
+        <span><strong>7.</strong> Visualization from Lack</span>
+        <span><strong>8.</strong> Time Lag Frustration</span>
+      </div>
+    </div>
+    <div class="metaphor-card">
+      <div class="mc-icon">&#x1F9D1;</div>
+      <div class="mc-title">The Driver</div>
+      <div class="mc-meaning">Manifesting Integration</div>
+      <div class="mc-blocks">
+        <span><strong>9.</strong> Surrender Block</span>
+        <span><strong>10.</strong> Quantum Leap Syndrome</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== QUICK REFERENCE ===== -->
+  <div class="quick-ref">
+    <h2>Quick Reference Card</h2>
+    <table class="qr-table">
+      <thead>
+        <tr><th>#</th><th>Block</th><th>One-Line Description</th><th>Category</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="qr-num">1</td><td class="qr-name">Upper Limit Problem</td><td>A glass ceiling on what you believe you're capable of</td><td class="qr-cat">The Car</td></tr>
+        <tr><td class="qr-num">2</td><td class="qr-name">Emotional Incongruence</td><td>Even when good things arrive, your nervous system pulls you back to "safety"</td><td class="qr-cat">The Car</td></tr>
+        <tr><td class="qr-num">3</td><td class="qr-name">Fear of Success</td><td>You think you fear failure, but you actually fear what success demands</td><td class="qr-cat">The Car</td></tr>
+        <tr><td class="qr-num">4</td><td class="qr-name">Hustle Mode</td><td>Discipline replaces intuition &mdash; you chase rather than attract</td><td class="qr-cat">The Fuel</td></tr>
+        <tr><td class="qr-num">5</td><td class="qr-name">Wrong Environment</td><td>Your physical environment carries a frequency that suppresses manifesting</td><td class="qr-cat">The Fuel</td></tr>
+        <tr><td class="qr-num">6</td><td class="qr-name">Bullshit Rules</td><td>Hidden programs from childhood/culture that govern what you allow yourself to have</td><td class="qr-cat">The GPS</td></tr>
+        <tr><td class="qr-num">7</td><td class="qr-name">Visualization from Lack</td><td>You see the dream but emotionally broadcast the gap, not the arrival</td><td class="qr-cat">The GPS</td></tr>
+        <tr><td class="qr-num">8</td><td class="qr-name">Time Lag Frustration</td><td>Impatience and doubt when progress isn't immediate, creating repelling desperation</td><td class="qr-cat">The GPS</td></tr>
+        <tr><td class="qr-num">9</td><td class="qr-name">Surrender Block</td><td>Clinging to how and when a goal must arrive &mdash; inability to trust timing</td><td class="qr-cat">The Driver</td></tr>
+        <tr><td class="qr-num">10</td><td class="qr-name">Quantum Leap Syndrome</td><td>Overwhelm, panic, or self-sabotage when manifestation arrives too fast</td><td class="qr-cat">The Driver</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== CLIENT LANGUAGE CHEAT SHEET ===== -->
+  <div class="cheat-sheet">
+    <h2>Client Language Cheat Sheet</h2>
+    <p>Listen for these phrases &mdash; they signal which block is active.</p>
+
+    <div class="cs-block">
+      <div class="cs-block-name">1. Upper Limit Problem</div>
+      <ul class="cs-phrases">
+        <li>"I don't have the education / skills / background for that."</li>
+        <li>"I'm not ready yet &mdash; I need more training first."</li>
+        <li>"What if I fail? What if it doesn't work out?"</li>
+      </ul>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block-name">2. Emotional Incongruence</div>
+      <ul class="cs-phrases">
+        <li>"I don't think I deserve that."</li>
+        <li>"Good things don't happen to people like me."</li>
+        <li>"Every time something good happens, something bad follows."</li>
+        <li>"I feel guilty when I receive compliments / gifts / money."</li>
+      </ul>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block-name">3. Fear of Success</div>
+      <ul class="cs-phrases">
+        <li>"What if I lose myself?"</li>
+        <li>"What if my friends leave me when I outgrow them?"</li>
+        <li>"If I get there, I'll have to deal with [taxes / employees / responsibility]."</li>
+        <li>"What if I have to hustle insanely hard to sustain it?"</li>
+      </ul>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block-name">4. Hustle Mode</div>
+      <ul class="cs-phrases">
+        <li>"I have to work harder / grind more."</li>
+        <li>"If I stop pushing, everything will fall apart."</li>
+        <li>"I feel restless / anxious when I'm not doing something."</li>
+        <li>"I feel guilty when I rest."</li>
+      </ul>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block-name">5. Wrong Environment</div>
+      <ul class="cs-phrases">
+        <li>"My home / office feels heavy / draining."</li>
+        <li>"The people around me don't support my dreams."</li>
+        <li>"I feel stuck but I don't know why."</li>
+        <li>"Everyone around me is negative / gossiping / fearful."</li>
+      </ul>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block-name">6. Bullshit Rules (Brules)</div>
+      <ul class="cs-phrases">
+        <li>"Money is dangerous / dirty / the root of all evil."</li>
+        <li>"Rich people are bad / greedy."</li>
+        <li>"People like me don't get to have that."</li>
+        <li>"My parents always said&hellip;"</li>
+        <li>"It's not safe to be visible / wealthy / successful."</li>
+      </ul>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block-name">7. Visualization from Lack</div>
+      <ul class="cs-phrases">
+        <li>"I visualize every day but nothing changes."</li>
+        <li>"I can see it but it feels so far away."</li>
+        <li>"Looking at my vision board makes me feel sad / frustrated."</li>
+        <li>"I want it so badly."</li>
+      </ul>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block-name">8. Time Lag Frustration</div>
+      <ul class="cs-phrases">
+        <li>"I've been doing this for months and nothing is happening."</li>
+        <li>"I'm running out of time."</li>
+        <li>"Maybe this manifesting stuff doesn't work."</li>
+        <li>"I should have had this by now."</li>
+      </ul>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block-name">9. Surrender Block</div>
+      <ul class="cs-phrases">
+        <li>"But when will it happen?"</li>
+        <li>"I need it to happen THIS way."</li>
+        <li>"Why is the universe ignoring me?"</li>
+        <li>"I've done everything right, where are my results?"</li>
+      </ul>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block-name">10. Quantum Leap Syndrome</div>
+      <ul class="cs-phrases">
+        <li>"Everything is happening so fast, I can't keep up."</li>
+        <li>"I got what I wanted and now I'm panicking."</li>
+        <li>"This feels too good to be true."</li>
+        <li>"I'm scared I'll mess it up now that I have it."</li>
+        <li>"I feel like a fraud / imposter."</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== DETAILED BLOCK GUIDE ===== -->
+  <div class="section-divider">DETAILED GUIDE</div>
+  <div class="section-divider-line"></div>
+  <p style="text-align: center; font-size: 14px; color: var(--mv-text-dim); margin-bottom: 8px;">In-depth coaching reference for each of the 10 manifesting blocks</p>
+
+  <!-- BLOCK 1 -->
+  <div class="block-section">
+    <div class="block-number">Block 1</div>
+    <span class="block-category-badge">The Car &middot; Inner Identity</span>
+    <h2>The Upper Limit Problem</h2>
+    <div class="block-definition">A glass ceiling on what you believe you're capable of. The goal feels unfamiliar, and you unconsciously hold yourself back from reaching it.</div>
+
+    <div class="core-belief">
+      <span class="cb-label">Core Belief</span>
+      <span class="cb-text">"I don't have what it takes to get there."</span>
+    </div>
+
+    <h3>How to Recognize It</h3>
+    <ul>
+      <li>Client uses language of lack: "I don't have the education / skills / background."</li>
+      <li>Nervousness and "what if" fears arise when thinking about a big goal.</li>
+      <li>Self-sabotage when approaching the ceiling &mdash; avoidance of opportunities.</li>
+      <li>Defaulting to "I'm not ready" or "I need more training first."</li>
+      <li>This block is domain-specific: confident in one area, blocked in another.</li>
+    </ul>
+
+    <h3>Common Origins</h3>
+    <ul>
+      <li>Childhood wounds and cultural rules about capability</li>
+      <li>Discouraging teachers, parents, or authority figures</li>
+      <li>A single defining comment that became embedded (e.g., being told "you suck at X" at a formative age)</li>
+    </ul>
+
+    <h3>Suggested Exercises</h3>
+    <div class="exercise-box">
+      <div class="ex-title">1. The Self-Check Question</div>
+      <p>Ask the client: <em>"Do you truly, 100%, feel you have what it takes to achieve [goal]?"</em> If there's any hesitation, the upper limit is present. Have them write down exactly what they feel they lack.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">2. Expand Emotional Capacity for Joy</div>
+      <p>Have the client repeat daily: <em>"I am safe to feel this good"</em> and <em>"I feel safe to feel this good."</em> This gradually raises the internal thermostat for what they allow themselves to experience.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">3. Evidence Journaling (3 minutes)</div>
+      <p>Each morning, find one piece of evidence from the past day or week that confirms they are already on the path. Accumulating evidence chips away at the glass ceiling over time.</p>
+    </div>
+  </div>
+
+  <!-- BLOCK 2 -->
+  <div class="block-section">
+    <div class="block-number">Block 2</div>
+    <span class="block-category-badge">The Car &middot; Inner Identity</span>
+    <h2>Emotional Incongruence</h2>
+    <div class="block-definition">A worthiness block &mdash; even when good things arrive, the nervous system pulls the client back to "safety." Unlike the upper limit (capability), this is about deserving.</div>
+
+    <div class="core-belief">
+      <span class="cb-label">Core Belief</span>
+      <span class="cb-text">"I don't deserve this."</span>
+    </div>
+
+    <h3>How to Recognize It</h3>
+    <ul>
+      <li>Self-sabotage at the moment of receiving &mdash; getting sick after a promotion, fights after moving in with a partner.</li>
+      <li>Physical symptoms emerging at moments of success.</li>
+      <li>Guilt around money or success; difficulty accepting compliments.</li>
+      <li>"Every time something good happens, something bad follows."</li>
+      <li>Pattern of giving away or undermining their own success.</li>
+    </ul>
+
+    <h3>Common Origins</h3>
+    <ul>
+      <li>Deep childhood wounds creating a core story of unworthiness</li>
+      <li>Guilt, stigma, or shame from past experiences</li>
+      <li>Early separation or abandonment defining relationship with receiving</li>
+    </ul>
+
+    <h3>Suggested Exercises</h3>
+    <div class="exercise-box">
+      <div class="ex-title">1. Inner Child Healing</div>
+      <p>Guide the client to visualize their inner child. Have them hold that child and say: <em>"You are safe now."</em> This begins rewiring the nervous system's safety threshold for receiving.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">2. Daily Mirror Ritual</div>
+      <p>Each morning, look at one eye in the mirror and repeat: <em>"You are worthy of this"</em> or <em>"I love you, I love you, I love you."</em> (Kamal Ravikant technique.) Consistency matters more than intensity.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">3. The Receiving Question</div>
+      <p>Ask: <em>"If your goal showed up tomorrow, could you receive it with ease?"</em> For money: What would it take to claim it without guilt? For love: What would you need to say or confess? Explore what stands between them and graceful receiving.</p>
+    </div>
+  </div>
+
+  <!-- BLOCK 3 -->
+  <div class="block-section">
+    <div class="block-number">Block 3</div>
+    <span class="block-category-badge">The Car &middot; Inner Identity</span>
+    <h2>Fear of Success</h2>
+    <div class="block-definition">The sneaky one &mdash; the client thinks they fear failure, but they actually fear what success demands: lifestyle changes, responsibility, exposure, outgrowing loved ones.</div>
+
+    <div class="core-belief">
+      <span class="cb-label">Core Belief</span>
+      <span class="cb-text">"I can't sustain it once I get there." / "I'm afraid of who I'll have to become."</span>
+    </div>
+
+    <h3>How to Recognize It</h3>
+    <ul>
+      <li>Getting close to a major goal and then pulling back or self-sabotaging.</li>
+      <li>Fear language about the consequences of success: "What if I lose my friends?" / "What if I have to work even harder?"</li>
+      <li>Destroying relationships once they become "real."</li>
+      <li>Avoiding commitments that would lead to the goal.</li>
+    </ul>
+
+    <h3>Common Origins</h3>
+    <ul>
+      <li>Childhood associations with success symbols (e.g., a big house meaning financial stress)</li>
+      <li>Fear of public scrutiny or responsibility</li>
+      <li>Watching parents or role models struggle under the weight of success</li>
+    </ul>
+
+    <h3>Suggested Exercises</h3>
+    <div class="exercise-box">
+      <div class="ex-title">1. Redefine Success as Freedom</div>
+      <p>Have the client rewrite their goal to include freedom rather than pressure. Example: Not "build a company" but <em>"build a company with just five people, in the leanest way possible, working no more than two hours a day."</em> Remove the fear by redesigning the destination.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">2. Visualize Expansion with Joy</div>
+      <p>Guide a visualization where everything unfolds with <em>"supreme ease"</em> &mdash; people coming to them, doors opening, things moving with joy rather than burnout. Anchor success to soul mission, not ego.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">3. The "Include Them" Reframe</div>
+      <p>If they fear outgrowing loved ones, brainstorm ways to bring those people along: internships, free tickets, invitations, shared experiences. Success doesn't have to mean leaving people behind.</p>
+    </div>
+  </div>
+
+  <!-- BLOCK 4 -->
+  <div class="block-section">
+    <div class="block-number">Block 4</div>
+    <span class="block-category-badge">The Fuel &middot; Energetic Alignment</span>
+    <h2>Hustle Mode</h2>
+    <div class="block-definition">Operating from lack &mdash; discipline replaces intuition, the client chases rather than attracts. The shadow side of the achiever archetype.</div>
+
+    <div class="core-belief">
+      <span class="cb-label">Core Belief</span>
+      <span class="cb-text">"If I don't push, it won't come." / "I must make it happen."</span>
+    </div>
+
+    <h3>How to Recognize It</h3>
+    <ul>
+      <li>Drained, restless, anxious when NOT doing something.</li>
+      <li>Guilt when resting; uses pressure rather than inspiration to motivate.</li>
+      <li>Nervous system constantly in "go mode."</li>
+      <li>Work feels like hard work rather than a natural next step.</li>
+      <li>Chasing synchronicities rather than receiving them.</li>
+    </ul>
+
+    <h3>Common Origins</h3>
+    <ul>
+      <li>Achiever archetype conditioning &mdash; culture of hustle</li>
+      <li>Core fear that stopping means losing everything</li>
+      <li>Identity wrapped up in productivity and doing</li>
+    </ul>
+
+    <h3>Suggested Exercises</h3>
+    <div class="exercise-box">
+      <div class="ex-title">1. The Alignment Mantras</div>
+      <p>Have the client post these where they'll see them daily:<br>
+      <em>"I no longer chase. I attract.<br>
+      I no longer prove. I align.<br>
+      I no longer hustle. I flow.<br>
+      My energy is my strategy."</em></p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">2. The Reframe Practice (3 minutes)</div>
+      <p>When in hustle mode, think of the most stressful item on the calendar. Ask: <em>"If it was already done, what would I do next?"</em> Notice how the answer shifts to something quieter and more graceful. That feeling is aligned action.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">3. Lofty Questions</div>
+      <p>Open-ended questions presupposing the desired future is already here. Said or written daily during meditation. Examples: <em>"Why does money come to me so easily?"</em> / <em>"Why do I have the fit muscular body of an athlete?"</em> These bypass the conscious mind's resistance and reprogram at the subconscious level.</p>
+    </div>
+  </div>
+
+  <!-- BLOCK 5 -->
+  <div class="block-section">
+    <div class="block-number">Block 5</div>
+    <span class="block-category-badge">The Fuel &middot; Energetic Alignment</span>
+    <h2>Wrong Environment</h2>
+    <div class="block-definition">The physical environment &mdash; spaces, people, media &mdash; carries a frequency that either amplifies or suppresses the client's ability to manifest.</div>
+
+    <div class="core-belief">
+      <span class="cb-label">Core Belief</span>
+      <span class="cb-text">"I'm stuck in circumstances I can't change."</span>
+    </div>
+
+    <h3>How to Recognize It</h3>
+    <ul>
+      <li>Low energy in certain spaces; feeling drained at home or work.</li>
+      <li>Spending time with people who diminish dreams or spread negativity.</li>
+      <li>"I feel stuck but I don't know why."</li>
+      <li>"I feel different when I'm in a different space."</li>
+      <li>Consuming fear-based media; tolerating environments that don't inspire.</li>
+    </ul>
+
+    <h3>Common Origins</h3>
+    <ul>
+      <li>Staying in familiar but draining environments out of comfort, habit, or obligation</li>
+      <li>Not knowing that physical environment affects manifesting capacity</li>
+      <li>"Too good to leave, too bad to stay" relationships</li>
+    </ul>
+
+    <h3>Suggested Exercises</h3>
+    <div class="exercise-box">
+      <div class="ex-title">1. The Energy Audit</div>
+      <p>Have the client rate five categories as "Charges me" or "Drains me":<br>
+      <strong>People</strong> (friends, colleagues, partners) &bull; <strong>Spaces</strong> (go room by room) &bull; <strong>Media</strong> (news, shows, books) &bull; <strong>Digital habits</strong> (apps, social media) &bull; <strong>Places they frequent</strong><br>
+      Anything that drains them is an energy leak that suppresses manifesting.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">2. Feng Shui Alignment</div>
+      <p>Recommend the Marie Diamond <em>"Your Diamond Compass"</em> app. Input birthdate, get personal success/love/health directions. Redesign desk and living space to face optimal directions. Reference: Marie Diamond's Mindvalley lesson <em>"Turn Your Home Into A 3D Vision Board."</em></p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">3. Environment Upgrade Action</div>
+      <p>Identify one concrete environmental change this week: remove a draining person/media source, rearrange a workspace, or upgrade a room. Start with the highest-drain item from the Energy Audit. Frame investment in environment as investment in manifesting capacity.</p>
+    </div>
+  </div>
+
+  <!-- BLOCK 6 -->
+  <div class="block-section">
+    <div class="block-number">Block 6</div>
+    <span class="block-category-badge">The GPS &middot; Subconscious Programming</span>
+    <h2>Bullshit Rules (Brules)</h2>
+    <div class="block-definition">Hidden automatic programs from childhood, culture, religion, or trauma that silently govern what the client allows themselves to have. Three subtypes: safety settings, worthiness settings, and association settings.</div>
+
+    <div class="core-belief">
+      <span class="cb-label">Core Belief</span>
+      <span class="cb-text">"It's not safe to be wealthy / loved / visible." &mdash; "Money is the root of all evil." &mdash; "I don't deserve that destination."</span>
+    </div>
+
+    <h3>How to Recognize It</h3>
+    <ul>
+      <li>"Money is dangerous / dirty / evil" or "Rich people are bad / greedy."</li>
+      <li>"People like me don't get to have that."</li>
+      <li>"My parents always said&hellip;" followed by a limiting belief.</li>
+      <li>Repeating patterns of self-sabotage aligned with cultural or family rules.</li>
+      <li>Automatic negative reactions when money, success, or love topics arise.</li>
+    </ul>
+
+    <h3>Common Origins</h3>
+    <ul>
+      <li>Childhood programming from parents, teachers, religious institutions</li>
+      <li>Cultural rules absorbed unconsciously</li>
+      <li>A single defining moment that installed the rule (often before age 9)</li>
+      <li>Trauma-based associations (e.g., "success = betrayal" from a specific event)</li>
+    </ul>
+
+    <h3>Suggested Exercises</h3>
+    <div class="exercise-box">
+      <div class="ex-title">1. Sentence Completion Exercise</div>
+      <p>Have the client write quickly without thinking:<br>
+      <em>"Money is ___"</em> &bull; <em>"Love is ___"</em> &bull; <em>"Success is ___"</em><br>
+      Spot negative associations. These are the Brules running the GPS. Discuss where each belief came from.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">2. Lofty Questions to Reprogram</div>
+      <p>Craft a question that rewrites the block. Repeat daily during morning practice for 30 days:<br>
+      Block <em>"money is evil"</em> &rarr; <em>"Why is money always flowing to me in ethical and joyful ways?"</em><br>
+      Block <em>"love leads to heartbreak"</em> &rarr; <em>"Why do I receive love from all sources in such powerful and enriched ways?"</em></p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">3. The Clearing Statement</div>
+      <p>From Christie Marie Sheldon's Unlimited Abundance: Have the client say seven times while visualizing the block shrinking:<br>
+      <em>"I uncreate, delete the story, this block, across all time, dimension, space, and realities."</em></p>
+    </div>
+  </div>
+
+  <!-- BLOCK 7 -->
+  <div class="block-section">
+    <div class="block-number">Block 7</div>
+    <span class="block-category-badge">The GPS &middot; Subconscious Programming</span>
+    <h2>Visualization from Lack</h2>
+    <div class="block-definition">The client can see the dream on their vision board, but emotionally they're broadcasting the gap &mdash; not the arrival. The feeling underneath the visualization is absence, not trust.</div>
+
+    <div class="core-belief">
+      <span class="cb-label">Core Belief</span>
+      <span class="cb-text">"I want it so badly because I don't have it." (broadcasting absence)</span>
+    </div>
+
+    <h3>How to Recognize It</h3>
+    <ul>
+      <li>Doing all the "right" visualization practices but feeling worse after them.</li>
+      <li>Vision boards that trigger frustration rather than inspiration.</li>
+      <li>"I can see it but it feels so far away."</li>
+      <li>Constant awareness of the gap between current reality and desired reality.</li>
+      <li>Longing, yearning, or sadness during visualization exercises.</li>
+    </ul>
+
+    <h3>Common Origins</h3>
+    <ul>
+      <li>Misunderstanding of how visualization works &mdash; taught to visualize the goal without being taught the required emotional state</li>
+      <li>Desperate desire creating energetic resistance</li>
+    </ul>
+
+    <h3>Suggested Exercises</h3>
+    <div class="exercise-box">
+      <div class="ex-title">1. Shift the Feeling State</div>
+      <p>Teach the client to visualize from trust and calm confidence, not longing. The feeling should be <em>"it's coming"</em> not <em>"I need it."</em> Have them practice feeling as though they are remembering a future that has already happened.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">2. The Trust Mantra</div>
+      <p>Adopt and repeat daily: <em>"If it's meant for me, it's not gonna miss me. And if it misses me, it was never meant to be mine."</em> Hold this attitude toward everything on the vision board.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">3. Arrival Visualization</div>
+      <p>Guide the client to visualize as if the goal is already arranged. Instead of reaching forward toward the goal, have them stand in the accomplished version of reality and look around. What do they see? How does it feel? This switches the signal from lack to arrival.</p>
+    </div>
+  </div>
+
+  <!-- BLOCK 8 -->
+  <div class="block-section">
+    <div class="block-number">Block 8</div>
+    <span class="block-category-badge">The GPS &middot; Subconscious Programming</span>
+    <h2>Time Lag Frustration</h2>
+    <div class="block-definition">Impatience and doubt when progress isn't immediate, creating desperation that actively repels the goal. Per Vadim Zeland: desperation creates "excess potential" that pushes outcomes away.</div>
+
+    <div class="core-belief">
+      <span class="cb-label">Core Belief</span>
+      <span class="cb-text">"It's not happening fast enough." / "It should have happened by now."</span>
+    </div>
+
+    <h3>How to Recognize It</h3>
+    <ul>
+      <li>Constantly checking for results.</li>
+      <li>Giving up on practices prematurely.</li>
+      <li>Switching methods or programs frequently.</li>
+      <li>"Maybe this manifesting stuff doesn't work."</li>
+      <li>Expressing frustration, desperation, or doubt about timeline.</li>
+    </ul>
+
+    <h3>Common Origins</h3>
+    <ul>
+      <li>Culture of instant gratification</li>
+      <li>Comparison to others' timelines</li>
+      <li>Misunderstanding manifesting as instant rather than unfolding</li>
+    </ul>
+
+    <h3>Suggested Exercises</h3>
+    <div class="exercise-box">
+      <div class="ex-title">1. The "No Big Deal" State</div>
+      <p>Cultivate calm confidence. The goal becomes a "nice to have" rather than a "must have." High importance creates energetic turbulence. Coach the client to know it is coming without attaching to the exact timeline.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">2. Trust Journaling</div>
+      <p>Each morning, write three proofs that life is unfolding perfectly. Not general gratitude &mdash; specific evidence that the universe is orchestrating events in their favor.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">3. Lower Importance</div>
+      <p>Explain Vadim Zeland's concept: assigning high importance to a goal creates excess potential that repels it. Have the client practice holding the goal lightly &mdash; wanting it without needing it. The paradox: the less desperately you need it, the faster it arrives.</p>
+    </div>
+  </div>
+
+  <!-- BLOCK 9 -->
+  <div class="block-section">
+    <div class="block-number">Block 9</div>
+    <span class="block-category-badge">The Driver &middot; Manifesting Integration</span>
+    <h2>Surrender Block</h2>
+    <div class="block-definition">The inability to trust the universe's timing &mdash; clinging to how and when a goal must arrive creates resistance and pushes the desired outcome away.</div>
+
+    <div class="core-belief">
+      <span class="cb-label">Core Belief</span>
+      <span class="cb-text">"I need to control how and when this happens."</span>
+    </div>
+
+    <h3>How to Recognize It</h3>
+    <ul>
+      <li>Over-planning and rigidity about how goals must manifest.</li>
+      <li>Anxiety when things don't go according to plan.</li>
+      <li>Inability to see value in unexpected developments or "detours."</li>
+      <li>"I've done everything right, where are my results?"</li>
+      <li>Fake non-attachment: saying "I don't care" while secretly caring deeply.</li>
+    </ul>
+
+    <h3>Common Origins</h3>
+    <ul>
+      <li>Need for control; past experiences where trusting led to disappointment</li>
+      <li>Type-A personality conditioning</li>
+      <li>Lack of evidence (yet) that the universe is working on their behalf</li>
+    </ul>
+
+    <h3>Suggested Exercises</h3>
+    <div class="exercise-box">
+      <div class="ex-title">1. Mirror Statement (Marisa Peer technique)</div>
+      <p>Write on the bathroom mirror or a card they carry: <em>"It's on its way in perfect timing."</em> Read it every morning and night. The repetition rewires the nervous system's need for control.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">2. Trust Journaling</div>
+      <p>Each morning, write three specific pieces of evidence that the universe is orchestrating events in their favor. Not general gratitude &mdash; specific "breadcrumbs" of synchronicity. This builds a trust archive.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">3. The Karate Kid Reframe</div>
+      <p>Share the Mr. Miyagi analogy: <em>"The universe is just making you wax on and wax off."</em> What seems like frustrating detours are actually precise preparation. Ask: <em>"What if this detour is teaching you exactly what you'll need when the goal arrives?"</em> Also recommend reading The Surrender Experiment by Michael Singer.</p>
+    </div>
+  </div>
+
+  <!-- BLOCK 10 -->
+  <div class="block-section">
+    <div class="block-number">Block 10</div>
+    <span class="block-category-badge">The Driver &middot; Manifesting Integration</span>
+    <h2>Quantum Leap Syndrome</h2>
+    <div class="block-definition">Overwhelm, panic, or self-sabotage when the manifestation arrives faster and bigger than expected. The nervous system isn't calibrated to receive that level of success, love, or abundance.</div>
+
+    <div class="core-belief">
+      <span class="cb-label">Core Belief</span>
+      <span class="cb-text">"This is too much too fast &mdash; I can't handle this level of success."</span>
+    </div>
+
+    <h3>How to Recognize It</h3>
+    <ul>
+      <li>Panic, overwhelm, or freezing when success arrives.</li>
+      <li>Self-sabotage after receiving what was desired.</li>
+      <li>"This feels too good to be true" / "I feel like a fraud."</li>
+      <li>Turning down opportunities or destroying deals at the moment of success.</li>
+      <li>Physical symptoms (insomnia, illness) when a quantum leap occurs.</li>
+    </ul>
+
+    <h3>Common Origins</h3>
+    <ul>
+      <li>Nervous system not gradually acclimated to higher levels of success</li>
+      <li>Past experiences of loss after gaining</li>
+      <li>Imposter syndrome; going from scarcity to abundance too quickly</li>
+    </ul>
+
+    <h3>Suggested Exercises</h3>
+    <div class="exercise-box">
+      <div class="ex-title">1. Celebrate Small Wins</div>
+      <p>Not just big milestones. Every small win tells the nervous system <em>"this level is safe."</em> Have the client create a daily practice of acknowledging progress &mdash; no matter how small &mdash; to gradually expand their capacity for receiving.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">2. Progressive Overload (The Puppy Metaphor)</div>
+      <p>Scale dreams like building muscle. Don't leap from $500K to $10M. Aim for $1M first, understand what life looks like there, then $2M, then $5M. <em>"You don't throw the puppy in the bath. You let it lick water from your hand first."</em> Progressive overload, not shock training.</p>
+    </div>
+    <div class="exercise-box">
+      <div class="ex-title">3. Daily Embodiment Visualization</div>
+      <p>Guide the client to visualize already inhabiting their goal so identity catches up with reality before reality arrives. Have them step into the body of their future self, notice body tension, soothe it, and receive the message: <em>"I'll see you here soon. Trust the process."</em></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span class="mv-mark">Mindvalley</span> &middot; Manifesting Mastery &middot; Coach Instructional Guide
+  </div>
+
+</div>
+</body>
+</html>
